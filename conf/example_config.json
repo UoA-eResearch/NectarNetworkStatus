@@ -1,6 +1,6 @@
 {
-  "switch_ssh_key" = ["/home/rbur004/.ssh/ntr_srv_id_rsa"],
-  "switch_ssh_user" = "robot",
-  "host_ssh_key" = ["/home/rbur004/.ssh/ntr-switch-id_rsa"],
-  "host_ssh_user" = "root"
+  "switch_ssh_key": ["/home/rbur004/.ssh/ntr_srv_id_rsa"],
+  "switch_ssh_user": "robot",
+  "host_ssh_key": ["/home/rbur004/.ssh/ntr-switch-id_rsa"],
+  "host_ssh_user": "root"
 }
