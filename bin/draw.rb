@@ -3,8 +3,8 @@ require_relative '../rlib/svg_routines.rb'
 require_relative '../rlib/drawing_layout.rb'        
 require_relative '../rlib/nodes.rb'   
 
-SVG_FILE = "../www/net.svg"
-KNOWN_SERVERS = "../www/knownsites.js"
+SVG_FILE = "#{File.dirname(__FILE__)}/../www/net.svg"
+KNOWN_SERVERS = "#{File.dirname(__FILE__)}/../www/knownsites.js"
 
 @nodes = Nodes.new
 
@@ -57,7 +57,7 @@ File.open(KNOWN_SERVERS, "w") do |fd|
   @nodes.each_node do |host_name,attributes|
     attributes['ports'].each do |port, port_attributes|
       remote_id = (port_attributes['remote'] != nil && port_attributes['remote']['host'] != '') ? port_attributes['remote']['host'].gsub(/ /,'_') + '_' + port_attributes['remote']['port'].gsub(/ /,'_') : ''
-      fd.puts " \"#{port_attributes['id']}\": { \"host_name\": \"#{host_name}\", \"port_name\": \"#{port}\", \"type\": \"rect\" , \"url\": \"\", \"remote_id\": \"#{remote_id}\" },"
+      fd.puts " \"#{host_name.gsub(/ /,'_')}_#{port.gsub(/ /,'_')}\": { \"host_name\": \"#{host_name}\", \"port_name\": \"#{port}\", \"type\": \"rect\" , \"url\": \"\", \"remote_id\": \"#{remote_id}\" },"
     end
   end
   fd.puts " \"null\": { \"host_name\": \"\", \"port_name\": \"\", \"type\": \"filler\" , \"url\": \"\", \"remote_id\": \"\" }"
