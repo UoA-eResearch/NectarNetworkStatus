@@ -88,8 +88,8 @@ def drawing_layout
         { :type => '2l', :name => 'cop07-p', :ports => ['eno3','eno4'] }, #7
         { :type => '2r', :name => 'cop08-p', :ports => ['eno1','eno2'] }, #8
         { :type => '2r', :name => 'cop09-p', :ports => ['eno3','eno4'] }, #9
-        nil,                              #10
-        nil,                              #11
+        { :type => '2l', :name => 'cop10-p', :ports => ['eno3','eno4'] }, #10
+        { :type => '2r', :name => 'cop11-p', :ports => ['eno3','eno4'] }, #11
         { :type => '2l', :name => 'adm01-p', :ports => ['eno3','eno4'] }, #12
         { :type => '2l', :name => 'ctr01-p', :ports => ['eno3','eno4'] }, #13
         { :type => '2r', :name => 'ctr03-p', :ports => ['eno3','eno4'] }, #14
@@ -145,9 +145,9 @@ def drawing_layout
         { :type => '1r', :name => 'cop06-p', :ports => ['iDrac'] }, #6
         { :type => '1l', :name => 'cop07-p', :ports => ['iDrac'] }, #7
         { :type => '1r', :name => 'cop08-p', :ports => ['iDrac'] }, #8
-        { :type => '1r', :name => 'cop09-p', :ports => ['iDrac'] }, #8
-        nil,                              #10
-        nil,                              #11
+        { :type => '1r', :name => 'cop09-p', :ports => ['iDrac'] }, #9
+        { :type => '1r', :name => 'cop10-p', :ports => ['iDrac'] }, #10
+        { :type => '1r', :name => 'cop11-p', :ports => ['iDrac'] }, #11
         { :type => '1r', :name => 'adm01-p', :ports => ['iDrac'] }, #12
         { :type => '1l', :name => 'ctr01-p', :ports => ['iDrac'] }, #13
         { :type => '1r', :name => 'ctr03-p', :ports => ['iDrac'] }, #14
