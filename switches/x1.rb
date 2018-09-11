@@ -12,8 +12,8 @@ module HOSTS
           'Gi 1/7'  => { 'remote' => {'host' => 'cop07-p', 'port' => 'iDrac'} },
           'Gi 1/8'  => { 'remote' => {'host' => 'cop08-p', 'port' => 'iDrac'} },
           'Gi 1/9'  => { 'remote' => {'host' => 'cop09-p', 'port' => 'iDrac'} },
-          'Gi 1/10' => { 'remote' => {'host' => '', 'port' => ''} },
-          'Gi 1/11' => { 'remote' => {'host' => '', 'port' => ''} },
+          'Gi 1/10' => { 'remote' => {'host' => 'cop10-p', 'port' => 'iDrac'} },
+          'Gi 1/11' => { 'remote' => {'host' => 'cop11-p', 'port' => 'iDrac'} },
           'Gi 1/12' => { 'remote' => {'host' => 'adm01-p', 'port' => 'iDrac'} },
           'Gi 1/13' => { 'remote' => {'host' => 'ctr01-p', 'port' => 'iDrac'} },
           'Gi 1/14' => { 'remote' => {'host' => 'ctr03-p', 'port' => 'iDrac'} },
@@ -55,7 +55,7 @@ module HOSTS
           'Te 1/50' => { 'remote' => {'host' => 'x6', 'port' => 'Te 1/47'}, 'Port-Channel' => 4 },
           'Te 1/51' => { 'remote' => {'host' => 'TDC_BR', 'port' => 'c4'} },
           'Te 1/52' => { 'remote' => {'host' => 'OGG_BR', 'port' => 'c4'} },
-          'Ma 1/1'  => { 'remote' => {'host' => '', 'port' => ''} },
+          'Ma 1/1'  => { 'remote' => {'host' => '', 'port' => ''}, 'ip'=>'172.31.80.1/24'  },
         }
       }
     }
