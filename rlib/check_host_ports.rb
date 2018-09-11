@@ -117,26 +117,23 @@ module Host_Port_Status
     output = {}
 
     @nodes = Nodes.new
-    @nodes.each_host do |host_name, host_record|
-      bonds = {}
-      ping_these = {}
+    
+    @nodes.each_switch do |host_name, host_record|
       host_record['ports'].each do |port_name, port_record|
-        if port_record['bond'] != nil
-          bonds[port_record['bond']] ||= []
-          bonds[port_record['bond']] << port_name 
-        elsif port_record['ip'] != nil && port_record['ip'] != ''
-          ping_these[port_name] = port_record['ip']
+        if port_record['ip'] != nil && port_record['ip'] != ''
+          threads << Thread.new { output["#{host_name}_#{port_name}"] = ping_site(host: host_name, interface: port_name, ip: port_record['ip'])  } 
         end
       end
-  
-      bonds.each do |bond, ports|
-        #lacp_report(host: host_name, bond_interface: "bond#{bond}")
-        host_bond = "#{host_name}_bond#{bond}"
-        threads << Thread.new { output[host_bond] = lacp_status_of_known_sites(host: host_name, bond_interface: "bond#{bond}")  }
-      end
-      ping_these.each do |port, ip|
-        host_port = "#{host_name}_#{port}"
-        threads << Thread.new { output[host_port] = ping_site(host: host_name, interface: port, ip: ip)  }
+    end
+    
+    @nodes.each_host do |host_name, host_record|
+      host_record['ports'].each do |port_name, port_record|
+        if port_record['bond'] != nil
+          threads << Thread.new { output["#{host_name}_bond#{port_record['bond']}"] = lacp_status_of_known_sites(host: host_name, bond_interface: "bond#{port_record['bond']}")  }
+        end
+        if port_record['ip'] != nil && port_record['ip'] != ''
+          threads << Thread.new { output["#{host_name}_#{port_name}"] = ping_site(host: host_name, interface: port_name, ip: port_record['ip'])  }
+        end
       end
     end
 
