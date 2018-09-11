@@ -178,13 +178,13 @@ def drawing_layout
         nil,                              #39
         nil,                              #40
         { :type => '1l', :name => 'k02', :ports => ['G1'] }, #41
-        nil,                              #42
-        { :type => '1l', :name => 'x7', :ports => ['Ma 1/1'] }, #43
-        { :type => '1r', :name => 'x6', :ports => ['Ma 1/1'] }, #44
-        { :type => '1l', :name => 'x5', :ports => ['Ma 1/1'] }, #45
-        { :type => '1r', :name => 'x4', :ports => ['Ma 1/1'] }, #46
-        { :type => '1l', :name => 'x3', :ports => ['Ma 1/1'] }, #47
-        { :type => '1r', :name => 'x2', :ports => ['Ma 1/1'] }, #48
+        { :type => '1r', :name => 'x1', :ports => ['Ma_1/1'] }, #42
+        { :type => '1l', :name => 'x7', :ports => ['Ma_1/1'] }, #43
+        { :type => '1r', :name => 'x6', :ports => ['Ma_1/1'] }, #44
+        { :type => '1l', :name => 'x5', :ports => ['Ma_1/1'] }, #45
+        { :type => '1r', :name => 'x4', :ports => ['Ma_1/1'] }, #46
+        { :type => '1l', :name => 'x3', :ports => ['Ma_1/1'] }, #47
+        { :type => '1r', :name => 'x2', :ports => ['Ma_1/1'] }, #48
         nil,                              #49
         nil,                              #50
         { :type => '1l', :name => 'TDC_BR', :ports => ['c4'] }, #51
