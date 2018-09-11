@@ -57,7 +57,7 @@ module HOSTS
           'Fo 1/52' => { 'remote' => {'host' => 'x5', 'port' => 'Fo 1/52'}, 'Port-Channel' => 2 },
           'Fo 1/53' => { 'remote' => {'host' => '', 'port' => ''} },
           'Fo 1/54' => { 'remote' => {'host' => '', 'port' => ''} },
-          'Ma 1/1'  => { 'remote' => {'host' => 'x1', 'port' => 'Gi 1/43'}, 'ip'=>'172.31.80.7/24' },
+          'Ma 1/1'  => { 'remote' => {'host' => 'x1', 'port' => 'Gi 1/43'}, 'ip'=>'172.31.80.7' },
         }
       }
     }
