@@ -53,6 +53,10 @@ class Nodes
     end 
   end
   
+  def port_label(host_name:, port_name: )
+    self[host_name] != nil && self[host_name]['ports'][port_name] != nil ?  self[host_name]['ports'][port_name]['label'] : ''
+  end
+  
   def line(switch_name:, switch_port:, host_name:, host_port:)
     a = attachment_point(host_name: switch_name, port_name: switch_port)
     b = attachment_point(host_name: host_name, port_name: host_port, source_point: a)

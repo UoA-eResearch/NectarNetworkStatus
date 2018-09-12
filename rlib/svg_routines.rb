@@ -35,13 +35,13 @@ def draw_switch(svg:, origin:, ports:, name:)
   width = SWITCH_WIDTH
   height = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE)/2 + PORT_SIDE 
   svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
-  svg.text(text: name, bottom_left: Point.new(origin.x + width/2, origin.y + height + PORT_SIDE), style: {"fill"=>'black',"font-size"=>"12", 'font-weight'=>'bold'}, textAnchor: 'middle')
+  svg.text(text: name, bottom_left: Point.new(origin.x + width/2, origin.y + height + PORT_SIDE), style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"12", 'font-weight'=>'bold'}, textAnchor: 'middle')
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + PORT_SIDE/2
   (1..nports/2).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: ((offset-1)*2+2).to_s, host_name: name, port_name: ports[(offset-1)*2+1], attach: :low)
-    draw_port(svg: svg, origin: Point.new(c + PORT_SIDE + INTER_PORT, y), label: ((offset-1)*2+1).to_s, host_name: name, port_name: ports[(offset-1)*2], attach: :high)
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[(offset-1)*2+1]), host_name: name, port_name: ports[(offset-1)*2+1], attach: :low)
+    draw_port(svg: svg, origin: Point.new(c + PORT_SIDE + INTER_PORT, y), label: @nodes.port_label(host_name: name, port_name: ports[(offset-1)*2]), host_name: name, port_name: ports[(offset-1)*2], attach: :high)
     y += PORT_SIDE + INTER_PORT
   end
 end
@@ -51,12 +51,12 @@ def draw_server(svg:, origin:, ports:, name:)
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
   svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
-  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
+  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black","fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..nports).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
@@ -79,14 +79,14 @@ def draw_server_6_inner(svg:, origin:, name:, ports: [])
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..4).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 
   c = origin.x + PORT_SIDE*2
   y = origin.y + height + INTER_PORT/2
   (5..6).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
@@ -109,14 +109,14 @@ def draw_server_6_outer(svg:, origin:, name:, ports: [])
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..2).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += (PORT_SIDE + INTER_PORT)*3
   end
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + height + INTER_PORT/2
   (3..6).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
@@ -126,19 +126,19 @@ def draw_server_8(svg:, origin:, name:, ports: [])
   height = SERVER_HEIGHT * 2
   width = ((PORT_SIDE + INTER_PORT) * (nports/2 - 1) + PORT_SIDE) + PORT_SIDE
   svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
-  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
+  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..4).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + height/2 + INTER_PORT/2
   (5..8).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
@@ -148,12 +148,12 @@ def draw_server_2l(svg: , origin:, ports: , name:)
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
   svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
-  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
+  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..nports).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
@@ -164,12 +164,12 @@ def draw_server_2r(svg: , origin:, ports: , name:)
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
   origin.x +=  width 
   svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
-  svg.text(text: name, bottom_left: Point.new(origin.x + width, origin.y + height/2), dx: +3, dy: 3, style: {"fill"=>'black',"font-size"=>"10"}, textAnchor: 'start')
+  svg.text(text: name, bottom_left: Point.new(origin.x + width, origin.y + height/2), dx: +3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'start')
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..nports).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
@@ -179,12 +179,12 @@ def draw_server_1l(svg: , origin:, ports: , name:)
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
   svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
-  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
+  svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..nports).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
@@ -195,12 +195,12 @@ def draw_server_1r(svg: , origin:, ports: , name:)
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
   origin.x +=  width 
   svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
-  svg.text(text: name, bottom_left: Point.new(origin.x + width, origin.y + height/2), dx: +3, dy: 3, style: {"fill"=>'black',"font-size"=>"10"}, textAnchor: 'start')
+  svg.text(text: name, bottom_left: Point.new(origin.x + width, origin.y + height/2), dx: +3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'start')
 
   c = origin.x + PORT_SIDE/2
   y = origin.y + INTER_PORT/2
   (1..nports).each do |offset|
-    draw_port(svg: svg, origin: Point.new(c, y), label: offset.to_s, host_name: name, port_name: ports[offset - 1])    
+    draw_port(svg: svg, origin: Point.new(c, y), label: @nodes.port_label(host_name: name, port_name: ports[offset - 1]), host_name: name, port_name: ports[offset - 1])    
     c += PORT_SIDE + INTER_PORT
   end
 end
