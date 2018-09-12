@@ -1,5 +1,5 @@
 module HOSTS
-  def HOSTShosts
+  def HOSTS::hosts
     { 'x6' => {
         'port_types' => {'Te' => 48, 'Fo' => 6, 'Ma' => 1},
         'ports' => { 
