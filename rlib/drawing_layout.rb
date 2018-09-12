@@ -15,9 +15,9 @@ def drawing_layout
       :host_origin_y => SWITCH_Y_OFFSET,
       :switches => [
         [ 'x5',  Point.new(SWITCH_PAIR_1_X, SWITCH_Y_OFFSET), [
-            'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/11','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/16','Te 1/17','Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ],
+            'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/11','Te 1/16','Te 1/17','Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ],
         [ 'x7', Point.new(SWITCH_PAIR_1_X + INTERSWITCH_DISTANCE + SWITCH_WIDTH, SWITCH_Y_OFFSET),   [
-                'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/11','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/16','Te 1/17','Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ]
+                'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/11','Te 1/16','Te 1/17','Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ]
       ],
       :hosts => [
         { :type => '4', :name => 'cop04-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #1
@@ -25,9 +25,9 @@ def drawing_layout
         { :type => '4', :name => 'cop06-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #3
         { :type => '4', :name => 'cop07-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #4
         { :type => '4', :name => 'cop10-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #4
-        { :type => '4', :name => 'cop11-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #4
         { :type => '4', :name => 'adm02-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #7
         { :type => '4', :name => 'ctr02-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #8
+        { :type => '4', :name => 'cop11-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #4
         { :type => '8', :name => 'sto12-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp132s0f0','enp132s0f1','T7','T8'] }, nil, #9,10
         { :type => '8', :name => 'sto05-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp132s0f0','enp132s0f1','T7','T8'] }, nil, #11,12
         { :type => '8', :name => 'sto06-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp132s0f0','enp132s0f1','T7','T8'] }, nil, #13,14
@@ -44,9 +44,9 @@ def drawing_layout
       :host_origin_y => 0,
       :switches => [
         [ 'x4', Point.new(SWITCH_PAIR_2_X,0), [
-          'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/11','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/16','Te 1/17','Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ],
+          'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/16','Te 1/17','Te 1/11', 'Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ],
         [ 'x6', Point.new(SWITCH_PAIR_2_X + INTERSWITCH_DISTANCE + SWITCH_WIDTH,0), [
-            'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/11','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/16','Te 1/17','Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ]
+            'Te 1/1','Te 1/2','Te 1/3','Te 1/4','Te 1/5','Te 1/6','Te 1/7','Te 1/8','Te 1/9','Te 1/10','Te 1/12','Te 1/13','Te 1/14','Te 1/15','Te 1/16','Te 1/17','Te 1/11','Te 1/18','Te 1/19','Te 1/20','Te 1/21','Te 1/22','Te 1/23','Te 1/24','Te 1/25','Te 1/26','Te 1/27','Te 1/28','Te 1/29','Te 1/30','Te 1/31','Te 1/32','Te 1/33','Te 1/34','Te 1/35','Te 1/36','Te 1/37','Te 1/38','Te 1/39','Te 1/40','Te 1/41','Te 1/42','Te 1/43','Te 1/44','Te 1/45','Te 1/46','Te 1/47','Te 1/48','Fo 1/49','Fo 1/50','Fo 1/51','Fo 1/52','Fo 1/53','Fo 1/54'] ]
       ],
       :hosts => [
         { :type => '4', :name => 'cop01-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #1
@@ -178,13 +178,13 @@ def drawing_layout
         nil,                              #39
         nil,                              #40
         { :type => '1l', :name => 'k02', :ports => ['G1'] }, #41
-        { :type => '1r', :name => 'x1', :ports => ['Ma_1/1'] }, #42
-        { :type => '1l', :name => 'x7', :ports => ['Ma_1/1'] }, #43
-        { :type => '1r', :name => 'x6', :ports => ['Ma_1/1'] }, #44
-        { :type => '1l', :name => 'x5', :ports => ['Ma_1/1'] }, #45
-        { :type => '1r', :name => 'x4', :ports => ['Ma_1/1'] }, #46
-        { :type => '1l', :name => 'x3', :ports => ['Ma_1/1'] }, #47
-        { :type => '1r', :name => 'x2', :ports => ['Ma_1/1'] }, #48
+        { :type => '1r', :name => 'x1', :ports => ['Ma 1/1'] }, #42
+        { :type => '1l', :name => 'x7', :ports => ['Ma 1/1'] }, #43
+        { :type => '1r', :name => 'x6', :ports => ['Ma 1/1'] }, #44
+        { :type => '1l', :name => 'x5', :ports => ['Ma 1/1'] }, #45
+        { :type => '1r', :name => 'x4', :ports => ['Ma 1/1'] }, #46
+        { :type => '1l', :name => 'x3', :ports => ['Ma 1/1'] }, #47
+        { :type => '1r', :name => 'x2', :ports => ['Ma 1/1'] }, #48
         nil,                              #49
         nil,                              #50
         { :type => '1l', :name => 'TDC_BR', :ports => ['c4'] }, #51
