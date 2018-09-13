@@ -1,6 +1,8 @@
 <html>
 <head>
   <title>UoA NeCTAR Network Status</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <META HTTP-EQUIV="refresh" CONTENT="900">
   <script src="knownsites.js"></script>
   <script src="/imported_js/jquery-3.0.0.min.js"></script>
   <script src="/imported_js/wikk_ajax-min.js"></script>
@@ -118,6 +120,13 @@
         }
       }
     }
+    
+    function set_line_colour(id, remote_id, colour) {
+      var t = document.querySelector(".svgClass").getSVGDocument().getElementById("line_" + id + "-" + remote_id);
+      if(t != null) {
+        t.style.stroke = colour
+      }
+    }
 
     function errorHostStatusCallback(jqXHR, textStatus, errorMessage) {
       alert(textStatus + "\n" + errorMessage);
@@ -133,19 +142,29 @@
         if(window.known_sites != null) {
           for(var id in window.known_sites ) {
             if(data[id] != null) {
+              remote_id = window.known_sites[id]['remote_id']
               switch(data[id]['state']) {
                 case 'up':
-                  set_rect_colour(id, 'green')
+                  if(remote_id != null && remote_id != "") {
+                    set_rect_colour(id, 'green')
+                    set_line_colour(id, remote_id, 'black')
+                  } else {
+                    set_rect_colour(id, 'orange')
+                  }
                   break
                 case 'down':
-                  if(window.known_sites[id]['remote_id'] != null && window.known_sites[id]['remote_id'] != "") {
+                  if(remote_id != null && remote_id != "") {
                     set_rect_colour(id, 'red')
+                    set_line_colour(id, remote_id, 'red')
                   } else {
                     set_rect_colour(id, 'black')
                   }
                   break
                 default:
                   set_rect_colour(id, 'purple')
+                  if(remote_id != null && remote_id != "") {
+                    set_line_colour(id, remote_id, 'black')
+                  }
                   break
               }
             } else {

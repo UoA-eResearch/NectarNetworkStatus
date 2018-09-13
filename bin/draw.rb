@@ -44,7 +44,8 @@ File.open(SVG_FILE, "w") do |f|
         switch[2].each do |interface|
           remote = @nodes.remote_node_port(host_name: switch[0], port: interface)
           if remote != nil && remote != ''
-            draw_line(svg: svg, switch_name: switch[0], switch_port: interface, host_name: remote['host'], host_port: remote['port'])
+            #draw_line(svg: svg, switch_name: switch[0], switch_port: interface, host_name: remote['host'], host_port: remote['port'])
+            draw_split_line(svg: svg, switch_name: switch[0], switch_port: interface, host_name: remote['host'], host_port: remote['port'])
           end
         end
       end
