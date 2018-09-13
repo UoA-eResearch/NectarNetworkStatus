@@ -50,7 +50,7 @@ def draw_server(svg:, origin:, ports:, name:)
   nports = ports.length
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
-  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
+  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black", "stroke-width" => 3})
   svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black","fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
@@ -125,7 +125,7 @@ def draw_server_8(svg:, origin:, name:, ports: [])
   nports = 8
   height = SERVER_HEIGHT * 2
   width = ((PORT_SIDE + INTER_PORT) * (nports/2 - 1) + PORT_SIDE) + PORT_SIDE
-  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
+  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black", "stroke-width" => 3})
   svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
@@ -147,7 +147,7 @@ def draw_server_2l(svg: , origin:, ports: , name:)
   nports = ports.length
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
-  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
+  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black", "stroke-width" => 3})
   svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
@@ -163,7 +163,7 @@ def draw_server_2r(svg: , origin:, ports: , name:)
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
   origin.x +=  width 
-  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
+  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black", "stroke-width" => 3})
   svg.text(text: name, bottom_left: Point.new(origin.x + width, origin.y + height/2), dx: +3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'start')
 
   c = origin.x + PORT_SIDE/2
@@ -178,7 +178,7 @@ def draw_server_1l(svg: , origin:, ports: , name:)
   nports = ports.length
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
-  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
+  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black", "stroke-width" => 3})
   svg.text(text: name, bottom_left: Point.new(origin.x, origin.y + height/2), dx: -3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'end')
 
   c = origin.x + PORT_SIDE/2
@@ -194,7 +194,7 @@ def draw_server_1r(svg: , origin:, ports: , name:)
   height = SERVER_HEIGHT
   width = ((PORT_SIDE + INTER_PORT) * (nports - 1) + PORT_SIDE) + PORT_SIDE
   origin.x +=  width 
-  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black"})
+  svg.rectangle(top_left: origin, width: width, height: height, style: {:fill=>"white", :stroke=>"black", "stroke-width" => 3})
   svg.text(text: name, bottom_left: Point.new(origin.x + width, origin.y + height/2), dx: +3, dy: 3, style: {"font-family"=>"Arial Black", "fill"=>'black',"font-size"=>"10"}, textAnchor: 'start')
 
   c = origin.x + PORT_SIDE/2
