@@ -51,10 +51,10 @@ module HOSTS
           'Gi 1/46' => {  'label' => '46', 'remote' => {'host' => 'x4', 'port' => 'Ma 1/1'}  },
           'Gi 1/47' => {  'label' => '47', 'remote' => {'host' => 'x3', 'port' => 'Ma 1/1'}  },
           'Gi 1/48' => {  'label' => '48', 'remote' => {'host' => 'x2', 'port' => 'Ma 1/1'}  },
-          'Te 1/49' => {  'label' => '49', 'remote' => {'host' => 'x4', 'port' => 'Te 1/47'}, 'Port-Channel' => 4 },
-          'Te 1/50' => {  'label' => '50', 'remote' => {'host' => 'x6', 'port' => 'Te 1/47'}, 'Port-Channel' => 4 },
-          'Te 1/51' => {  'label' => '51', 'remote' => {'host' => 'TDC_BR', 'port' => 'c4'}  },
-          'Te 1/52' => {  'label' => '52', 'remote' => {'host' => 'OGG_BR', 'port' => 'c4'}  },
+          'Te 1/49' => {  'label' => 'T1', 'remote' => {'host' => 'x4', 'port' => 'Te 1/47'}, 'Port-Channel' => 4 },
+          'Te 1/50' => {  'label' => 'T2', 'remote' => {'host' => 'x6', 'port' => 'Te 1/47'}, 'Port-Channel' => 4 },
+          'Te 1/51' => {  'label' => 'T3', 'remote' => {'host' => 'TDC_BR', 'port' => 'c4'}  },
+          'Te 1/52' => {  'label' => 'T4', 'remote' => {'host' => 'OGG_BR', 'port' => 'c4'}  },
           'Ma 1/1'  => {  'label' => 'M', 'remote' => {'host' => '', 'port' => ''}, 'ip'=>'172.31.80.1'  },
         }
       }

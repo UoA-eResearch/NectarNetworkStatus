@@ -13,7 +13,7 @@ module HOSTS
           'Gi 1/8'  => {  'label' => '8', 'remote' => {'host' => 'cop08-p', 'port' => 'eno2'} },
           'Gi 1/9'  => {  'label' => '9', 'remote' => {'host' => 'cop09-p', 'port' => 'eno4'} },
           'Gi 1/10' => {  'label' => '10', 'remote' => {'host' => 'cop10-p', 'port' => 'eno3'} },
-          'Gi 1/11' => {  'label' => '11', 'remote' => {'host' => 'cop11-p', 'port' => 'eno3'} },
+          'Gi 1/11' => {  'label' => '11', 'remote' => {'host' => 'cop11-p', 'port' => 'eno4'} },
           'Gi 1/12' => {  'label' => '12', 'remote' => {'host' => 'adm01-p', 'port' => 'eno4'} },
           'Gi 1/13' => {  'label' => '13', 'remote' => {'host' => 'ctr01-p', 'port' => 'eno4'} },
           'Gi 1/14' => {  'label' => '14', 'remote' => {'host' => 'ctr03-p', 'port' => 'eno4'} },
@@ -51,10 +51,10 @@ module HOSTS
           'Gi 1/46' => {  'label' => '46', 'remote' => {'host' => '', 'port' => ''} },
           'Gi 1/47' => {  'label' => '47', 'remote' => {'host' => '', 'port' => ''} },
           'Gi 1/48' => {  'label' => '48', 'remote' => {'host' => '', 'port' => ''} },
-          'Te 1/49' => {  'label' => '49', 'remote' => {'host' => 'x4', 'port' => 'Te 1/45'}, 'Port-Channel' => 6 },
-          'Te 1/50' => {  'label' => '50', 'remote' => {'host' => 'x6', 'port' => 'Te 1/45'}, 'Port-Channel' => 6 },
-          'Te 1/51' => {  'label' => '51', 'remote' => {'host' => 'x2', 'port' => 'Te 1/51'}, 'Port-Channel' => 20 },
-          'Te 1/52' => {  'label' => '52', 'remote' => {'host' => 'x2', 'port' => 'Te 1/52'}, 'Port-Channel' => 20 },
+          'Te 1/49' => {  'label' => 'T1', 'remote' => {'host' => 'x4', 'port' => 'Te 1/45'}, 'Port-Channel' => 6 },
+          'Te 1/50' => {  'label' => 'T2', 'remote' => {'host' => 'x6', 'port' => 'Te 1/45'}, 'Port-Channel' => 6 },
+          'Te 1/51' => {  'label' => 'T3', 'remote' => {'host' => 'x2', 'port' => 'Te 1/51'}, 'Port-Channel' => 20 },
+          'Te 1/52' => {  'label' => 'T4', 'remote' => {'host' => 'x2', 'port' => 'Te 1/52'}, 'Port-Channel' => 20 },
           'Ma 1/1'  => {  'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/47'}, 'ip'=>'172.31.80.3' },
         }
       }
