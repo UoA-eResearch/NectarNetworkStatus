@@ -5,8 +5,6 @@ require 'net/ping'
 module Host_Port_Status
   require_relative '../rlib/nodes.rb'   
 
-  KEYS=["/home/rbur004/.ssh/ntr_srv_id_rsa"]
-
   def self.ssh_host(host:, user: , key: , cmd:,  key_type: :password)
     begin
       Net::SSH.start(host, user, key_type => key) do |ssh|
@@ -37,12 +35,12 @@ module Host_Port_Status
   end
 =end
 
-  def self.lacp_report(host:, bond_interface:)
+  def self.lacp_report(host:, bond_interface:, conf:)
     status = {}
     interface = bond_interface #First time through, we get the overall status, then we get the slave interface status reports
     lacp_rate = partner_mac = link_count = local_pc = remote_pc = interface = ''
     #File.open("/proc/net/bonding/#{bond_interface}","r") do |fd|  #If done on the local host
-    ssh_host(host: host, cmd: "cat /proc/net/bonding/#{bond_interface}", key_type: :keys, key: KEYS, user: 'root') do |o|
+    ssh_host(host: host, cmd: "cat /proc/net/bonding/#{bond_interface}", key_type: :keys, key: conf.host_ssh_key, user: conf.host_ssh_user) do |o|
       o.each_line do |l| #if done on the local host.
       	case l.strip!
       	when /LACP rate:/
@@ -72,12 +70,12 @@ module Host_Port_Status
     puts
   end
 
-  def self.lacp_status_of_known_sites(host:, bond_interface:)
+  def self.lacp_status_of_known_sites(host:, bond_interface:, conf:)
     output = ""
     status = {}
     interface = bond_interface #First time through, we get the overall status, then we get the slave interface status reports
     lacp_rate = partner_mac = link_count = local_pc = remote_pc = ''
-    ssh_host(host: host, cmd: "cat /proc/net/bonding/#{bond_interface}", key_type: :keys, key: KEYS, user: 'root') do |o|
+    ssh_host(host: host, cmd: "cat /proc/net/bonding/#{bond_interface}", key_type: :keys, key: conf.host_ssh_key, user: conf.host_ssh_user) do |o|
       o.each_line do |l| #if done on the local host.
     	case l.strip!
     	when /LACP rate:/
@@ -112,7 +110,7 @@ module Host_Port_Status
     return output
   end
 
-  def self.host_port_status
+  def self.host_port_status(conf:)
     threads = []  
     output = {}
 
@@ -129,7 +127,7 @@ module Host_Port_Status
     @nodes.each_host do |host_name, host_record|
       host_record['ports'].each do |port_name, port_record|
         if port_record['bond'] != nil
-          threads << Thread.new { output["#{host_name}_bond#{port_record['bond']}"] = lacp_status_of_known_sites(host: host_name, bond_interface: "bond#{port_record['bond']}")  }
+          threads << Thread.new { output["#{host_name}_bond#{port_record['bond']}"] = lacp_status_of_known_sites(host: host_name, bond_interface: "bond#{port_record['bond']}", conf: conf)  }
         end
         if port_record['ip'] != nil && port_record['ip'] != ''
           threads << Thread.new { output["#{host_name.gsub(/ /,'_')}_#{port_name.gsub(/ /,'_')}"] = ping_site(host: host_name, interface: port_name.gsub(/ /,'_'), ip: port_record['ip'])  }

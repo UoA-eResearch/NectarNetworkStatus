@@ -1,8 +1,6 @@
 require 'open3'
 module Switch_Port_Status
 
-  KEYS=["/home/rbur004/.ssh/ntr-switch-id_rsa"]
-
   def self.ssh_host(host:, user: , key: , cmd:,  key_type: :password)
     running = false
     r = ''
@@ -61,12 +59,12 @@ module Switch_Port_Status
     @vlan_l = "Vlan".length
   end
 
-  def self.process_switch(host:)
+  def self.process_switch(host:, conf: )
     header = true
     output = ""
   
     begin
-      response = ssh_host(host: host, cmd: "show int stat", key_type: :keys, key: KEYS, user: 'robot' )
+      response = ssh_host(host: host, cmd: "show int stat", key_type: :keys, key: conf.switch_ssh_key, user: conf.switch_ssh_user )
     rescue StandardError => e
       puts e
     rescue NotImplementedError => e
@@ -92,12 +90,12 @@ module Switch_Port_Status
     return output
   end
 
-  def self.switch_port_status
+  def self.switch_port_status(conf:)
     init_bounds
     threads = []  
     output = {}
-    ['x1','x2','x3','x4','x5','x6','x7'].each do |host|
-      threads << Thread.new { output[host] = process_switch(host: host) }
+    conf.switches.each do |host|
+      threads << Thread.new { output[host] = process_switch(host: host, conf: conf) }
     end
     threads.each { |thr| thr.join }
     return output.sort
