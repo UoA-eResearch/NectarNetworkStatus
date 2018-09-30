@@ -22,3 +22,4 @@ File.open("#{File.dirname(__FILE__)}/../www/host_status.json.new", 'w') do |fd|
   fd.puts "}"
 end
 `/bin/mv -f #{File.dirname(__FILE__)}/../www/host_status.json.new #{File.dirname(__FILE__)}/../www/host_status.json`
+`/bin/cp -f #{File.dirname(__FILE__)}/../www/host_status.json #{@conf.web_dir}`
