@@ -177,7 +177,7 @@ def drawing_layout
         { :type => '1r', :name => 'sto14-p', :ports => ['iDrac'] }, #38
         nil,                              #39
         nil,                              #40
-        { :type => '1l', :name => 'k02', :ports => ['G1'] }, #41
+        nil,  #41
         { :type => '1r', :name => 'x1', :ports => ['Ma 1/1'] }, #42
         { :type => '1l', :name => 'x7', :ports => ['Ma 1/1'] }, #43
         { :type => '1r', :name => 'x6', :ports => ['Ma 1/1'] }, #44

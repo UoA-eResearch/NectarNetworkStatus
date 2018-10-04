@@ -43,8 +43,8 @@ module HOSTS
           'Gi 1/38' => {  'label' => '38', 'remote' => {'host' => 'sto14-p', 'port' => 'iDrac'}  },
           'Gi 1/39' => {  'label' => '39', 'remote' => {'host' => '', 'port' => ''}  },
           'Gi 1/40' => {  'label' => '40', 'remote' => {'host' => '', 'port' => ''}  },
-          'Gi 1/41' => {  'label' => '41', 'remote' => {'host' => 'k02', 'port' => 'G1'}  }, #Test link
-          'Gi 1/42' => {  'label' => '42', 'remote' => {'host' => '', 'port' => ''}  },
+          'Gi 1/41' => {  'label' => '41', 'remote' => {'host' => '', 'port' => ''} },
+          'Gi 1/42' => {  'label' => '42', 'remote' => {'host' => 'x1', 'port' => 'Ma 1/1'}  },
           'Gi 1/43' => {  'label' => '43', 'remote' => {'host' => 'x7', 'port' => 'Ma 1/1'}  },
           'Gi 1/44' => {  'label' => '44', 'remote' => {'host' => 'x6', 'port' => 'Ma 1/1'}  },
           'Gi 1/45' => {  'label' => '45', 'remote' => {'host' => 'x5', 'port' => 'Ma 1/1'}  },
