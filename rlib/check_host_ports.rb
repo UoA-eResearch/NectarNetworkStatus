@@ -74,31 +74,34 @@ module Host_Port_Status
     output = ""
     status = {}
     interface = bond_interface #First time through, we get the overall status, then we get the slave interface status reports
-    lacp_rate = partner_mac = link_count = local_pc = remote_pc = ''
+    lacp_rate = partner_mac = link_count = local_pc = partner_key = remote_key = ''
     ssh_host(host: host, cmd: "cat /proc/net/bonding/#{bond_interface}", key_type: :keys, key: conf.host_ssh_key, user: conf.host_ssh_user) do |o|
       o.each_line do |l| #if done on the local host.
-    	case l.strip!
-    	when /LACP rate:/
-    	  lacp_rate = l.split(' ')[-1]
-    	when /Partner Mac Address:/
-    	  partner_mac = l.split(' ')[-1]
-    	when /Number of ports:/
-    	  link_count = l.split(' ')[-1]
-    	when /Actor Key:/
-    	  local_pc = l.split(' ')[-1]
-    	when /Partner Key:/
-    	  remote_pc = l.split(' ')[-1]
-    	when /Slave Interface:/
-    	  interface = l.split(' ')[-1]
-    	when /MII Status:/
-    	  status[interface] = l.split(' ')[-1]
-    	end
+        case l.strip!
+        when /LACP rate:/
+          lacp_rate = l.split(' ')[-1]
+        when /Partner Mac Address:/
+          partner_mac = l.split(' ')[-1]
+        when /Number of ports:/
+          link_count = l.split(' ')[-1]
+        when /Actor Key:/
+          local_pc = l.split(' ')[-1]
+        when /Partner Key:/
+          partner_key = l.split(' ')[-1]
+        when /Slave Interface:/
+          interface = l.split(' ')[-1]
+        when /MII Status:/
+          status[interface] = l.split(' ')[-1]
+        when /oper key:/
+          remote_key = l.split(' ')[-1]
+          status[interface] = 'key_error' if partner_key != '' && remote_key != partner_key && status[interface] == 'up'
+        end
       end
     end
     #Want output of form
     #  "adm01_T1": { "state": "up" }, // where "adm01_T1" is of the form "<host>_<port>"
     status.sort.each do |interface, state|
-      output << "\"#{host}_#{interface}\":  { \"state\": \"#{state}\", \"description\": \"link count #{link_count} remote #{remote_pc} lacp_rate #{lacp_rate}\" },\n"
+      output << "\"#{host}_#{interface}\":  { \"state\": \"#{state}\", \"description\": \"link count #{link_count} partner_key #{partner_key} remote_key #{remote_key} lacp_rate #{lacp_rate}\" },\n"
     end
     return output
   end

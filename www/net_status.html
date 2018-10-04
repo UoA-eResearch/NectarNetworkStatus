@@ -160,6 +160,13 @@
                     set_rect_colour(id, 'black')
                   }
                   break
+                case 'key_error': //Have connection up at both ends, but the LACP keys don't match
+                  if(remote_id != null && remote_id != "") {
+                    set_rect_colour(id, 'orange')
+                    set_line_colour(id, remote_id, 'orange')
+                  } else {
+                    set_rect_colour(id, 'orange')
+                  }
                 default:
                   set_rect_colour(id, 'purple')
                   if(remote_id != null && remote_id != "") {
