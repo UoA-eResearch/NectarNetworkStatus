@@ -70,7 +70,7 @@ module Host_Port_Status
     puts
   end
 
-  def self.lacp_status_of_known_sites(host:, bond_interface:, conf:)
+  def self.lacp_status_of_known_sites(host:, bond_interface:, switch_lacp_key: nil, conf:)
     output = ""
     status = {}
     interface = bond_interface #First time through, we get the overall status, then we get the slave interface status reports
@@ -94,7 +94,7 @@ module Host_Port_Status
           status[interface] = l.split(' ')[-1]
         when /oper key:/
           remote_key = l.split(' ')[-1]
-          status[interface] = 'key_error' if partner_key != '' && remote_key != partner_key && status[interface] == 'up'
+          status[interface] = 'key_error' if partner_key != '' && (remote_key != partner_key || partner_key != switch_lacp_key) && status[interface] == 'up'
         end
       end
     end
@@ -108,7 +108,7 @@ module Host_Port_Status
 
   def self.ping_site(host:, interface:, ip:)
     output = ""
-    state = Net::Ping::External.new(ip, 5).ping? ? 'up' : 'down'
+    state = Net::Ping::External.new(ip, 7, 10).ping? ? 'up' : 'down'
     output << "\"#{host}_#{interface}\":  { \"state\": \"#{state}\", \"description\": \"ip: #{ip}\" },\n"
     return output
   end
@@ -130,7 +130,8 @@ module Host_Port_Status
     @nodes.each_host do |host_name, host_record|
       host_record['ports'].each do |port_name, port_record|
         if port_record['bond'] != nil
-          threads << Thread.new { output["#{host_name}_bond#{port_record['bond']}"] = lacp_status_of_known_sites(host: host_name, bond_interface: "bond#{port_record['bond']}", conf: conf)  }
+          lacp_key = port_record['remote']['Port-Channel'] != nil ? port_record['remote']['Port-Channel'].to_s : nil
+          threads << Thread.new { output["#{host_name}_bond#{port_record['bond']}"] = lacp_status_of_known_sites(host: host_name, bond_interface: "bond#{port_record['bond']}", switch_lacp_key: lacp_key, conf: conf)  }
         end
         if port_record['ip'] != nil && port_record['ip'] != ''
           threads << Thread.new { output["#{host_name.gsub(/ /,'_')}_#{port_name.gsub(/ /,'_')}"] = ping_site(host: host_name, interface: port_name.gsub(/ /,'_'), ip: port_record['ip'])  }
