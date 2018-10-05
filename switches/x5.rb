@@ -18,7 +18,7 @@ module HOSTS
           'Te 1/13' => {  'label' => '13', 'remote' => {'host' => 'adm02-p', 'port' => 'enp3s0f0'}, 'Port-Channel' => 12 },
           'Te 1/14' => {  'label' => '14', 'remote' => {'host' => 'ctr02-p', 'port' => 'eno1'}, 'Port-Channel' => 14 },
           'Te 1/15' => {  'label' => '15', 'remote' => {'host' => 'ctr02-p', 'port' => 'enp3s0f0'}, 'Port-Channel' => 14 },
-          'Te 1/16' => {  'label' => '16', 'remote' => {'host' => 'cop11-p', 'port' => 'enp3s0f0'}, 'Port-Channel' => 31 },
+          'Te 1/16' => {  'label' => '16', 'remote' => {'host' => 'cop11-p', 'port' => 'enp130s0f0'}, 'Port-Channel' => 31 },
           'Te 1/17' => {  'label' => '17', 'remote' => {'host' => 'sto12-p', 'port' => 'eno1'}, 'Port-Channel' => 52 },
           'Te 1/18' => {  'label' => '18', 'remote' => {'host' => 'sto12-p', 'port' => 'enp131s0f0'}, 'Port-Channel' => 52 },
           'Te 1/19' => {  'label' => '19', 'remote' => {'host' => 'sto12-p', 'port' => 'enp130s0f0'}, 'Port-Channel' => 72 },

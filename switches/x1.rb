@@ -55,7 +55,7 @@ module HOSTS
           'Te 1/50' => {  'label' => 'T2', 'remote' => {'host' => 'x6', 'port' => 'Te 1/47'}, 'Port-Channel' => 4 },
           'Te 1/51' => {  'label' => 'T3', 'remote' => {'host' => 'TDC_BR', 'port' => 'c4'}  },
           'Te 1/52' => {  'label' => 'T4', 'remote' => {'host' => 'OGG_BR', 'port' => 'c4'}  },
-          'Ma 1/1'  => {  'label' => 'M', 'remote' => {'host' => '', 'port' => ''}, 'ip'=>'172.31.80.1'  },
+          'Ma 1/1'  => {  'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/42'}, 'ip'=>'172.31.80.1'  },
         }
       }
     }
