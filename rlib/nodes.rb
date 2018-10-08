@@ -3,8 +3,8 @@ class Nodes
   def initialize
     #Dynamically load the host definitions, by requiring all files in the directory
     path = "#{File.dirname(__FILE__)}/.." #File.expand_path(File.dirname(__FILE__))
-    @host_defs = load_node_spec(path: path, folder: 'hosts')
-    @switch_defs = load_node_spec(path: path, folder: 'switches')
+    @host_defs = load_node_spec(path: path, folder: 'definitions/hosts')
+    @switch_defs = load_node_spec(path: path, folder: 'definitions/switches')
   end
   
   def each_host
