@@ -141,8 +141,8 @@
       try {
         if(window.known_sites != null) {
           for(var id in window.known_sites ) {
+            remote_id = window.known_sites[id]['remote_id']
             if(data[id] != null) {
-              remote_id = window.known_sites[id]['remote_id']
               switch(data[id]['state']) {
                 case 'up':
                   if(remote_id != null && remote_id != "") {
@@ -162,8 +162,8 @@
                   break
                 case 'key_error': //Have connection up at both ends, but the LACP keys don't match
                   if(remote_id != null && remote_id != "") {
-                    set_rect_colour(id, 'orange')
-                    set_line_colour(id, remote_id, 'orange')
+                    set_rect_colour(id, 'blue')
+                    set_line_colour(id, remote_id, 'red')
                   } else {
                     set_rect_colour(id, 'orange')
                   }
@@ -176,7 +176,11 @@
                   break
               }
             } else {
-              set_rect_colour(id, 'purple')
+              if(remote_id != null && remote_id != "") {
+                set_rect_colour(id, 'purple')
+              } else {
+                set_rect_colour(id, 'black')
+              }
             }
           }
         }
