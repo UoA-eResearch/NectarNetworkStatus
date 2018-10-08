@@ -1,6 +1,6 @@
 #!/usr/local/bin/ruby
 require_relative '../rlib/svg_routines.rb'        
-require_relative '../rlib/drawing_layout.rb'        
+require_relative '../definitions/drawing_layout.rb'        
 require_relative '../rlib/nodes.rb'   
 
 SVG_FILE = "#{File.dirname(__FILE__)}/../www/net.svg"
