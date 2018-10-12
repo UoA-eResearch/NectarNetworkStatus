@@ -74,34 +74,40 @@ module Host_Port_Status
     output = ""
     status = {}
     interface = bond_interface #First time through, we get the overall status, then we get the slave interface status reports
-    lacp_rate = partner_mac = link_count = local_pc = partner_key = remote_key = ''
+    lacp_rate = partner_mac = link_count = local_pc = partner_key = oper_key = ''
+    port_state = '0'
     ssh_host(host: host, cmd: "cat /proc/net/bonding/#{bond_interface}", key_type: :keys, key: conf.host_ssh_key, user: conf.host_ssh_user) do |o|
       o.each_line do |l| #if done on the local host.
         case l.strip!
         when /LACP rate:/
-          lacp_rate = l.split(' ')[-1]
+          lacp_rate = l.split(' ')[-1].strip
         when /Partner Mac Address:/
-          partner_mac = l.split(' ')[-1]
+          partner_mac = l.split(' ')[-1].strip
         when /Number of ports:/
-          link_count = l.split(' ')[-1]
+          link_count = l.split(' ')[-1].strip
         when /Actor Key:/
-          local_pc = l.split(' ')[-1]
+          local_pc = l.split(' ')[-1].strip
         when /Partner Key:/
-          partner_key = l.split(' ')[-1]
+          partner_key = l.split(' ')[-1].strip
         when /Slave Interface:/
-          interface = l.split(' ')[-1]
+          interface = l.split(' ')[-1].strip
+          partner_key = oper_key = ''#overwrite later.
+          status[interface] = 'down' #overwrite later.
+          port_state = '0'           #overwrite later.
+        when /port state:/
+          port_state = l.split(' ')[-1].strip
         when /MII Status:/
-          status[interface] = l.split(' ')[-1]
+          status[interface] = l.split(' ')[-1].strip
         when /oper key:/
-          remote_key = l.split(' ')[-1]
-          status[interface] = 'key_error' if partner_key != '' && (remote_key != partner_key || partner_key != switch_lacp_key) && status[interface] == 'up'
+          oper_key = l.split(' ')[-1].strip
+          status[interface] = 'key_error' if partner_key != '' && ( oper_key != partner_key || partner_key != switch_lacp_key || port_state != '63' ) && status[interface] == 'up'
         end
       end
     end
     #Want output of form
     #  "adm01_T1": { "state": "up" }, // where "adm01_T1" is of the form "<host>_<port>"
     status.sort.each do |interface, state|
-      output << "\"#{host}_#{interface}\":  { \"state\": \"#{state}\", \"description\": \"link count #{link_count} partner_key #{partner_key} remote_key #{remote_key} lacp_rate #{lacp_rate}\" },\n"
+      output << "\"#{host}_#{interface}\":  { \"state\": \"#{state}\", \"description\": \"link count #{link_count} partner_key #{partner_key} oper_key #{oper_key} lacp_rate #{lacp_rate} Expected_lacp_key #{switch_lacp_key} port_state #{port_state}\" },\n"
     end
     return output
   end
