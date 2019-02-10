@@ -128,7 +128,9 @@ module Host_Port_Status
     @nodes.each_switch do |host_name, host_record|
       host_record['ports'].each do |port_name, port_record|
         if port_record['ip'] != nil && port_record['ip'] != ''
-          threads << Thread.new(host_name,port_name,port_record['ip']) { |hn,pn,ip| output["#{hn.gsub(/ /,'_')}_#{pn.gsub(/ /,'_')}"] = ping_site(host: hn, interface: pn.gsub(/ /,'_'), ip: ip)  } 
+          threads << Thread.new(host_name,port_name,port_record['ip']) do |hn,pn,ip| 
+            output["#{hn.gsub(/ /,'_')}_#{pn.gsub(/ /,'_')}"] = ping_site(host: hn, interface: pn.gsub(/ /,'_'), ip: ip)
+          end 
         end
       end
     end
@@ -137,10 +139,14 @@ module Host_Port_Status
       host_record['ports'].each do |port_name, port_record|
         if port_record['bond'] != nil
           lacp_key = port_record['remote']['Port-Channel'] != nil ? port_record['remote']['Port-Channel'].to_s : nil
-          threads << Thread.new(host_name,port_record['bond'],lacp_key) { |hn,bond,lk| output["#{hn}_bond#{bond}"] = lacp_status_of_known_sites(host: hn, bond_interface: "bond#{bond}", switch_lacp_key: lk, conf: conf)  }
+          threads << Thread.new(host_name,port_record['bond'],lacp_key) do |hn,bond,lk| -
+            output["#{hn}_bond#{bond}"] = lacp_status_of_known_sites(host: hn, bond_interface: "bond#{bond}", switch_lacp_key: lk, conf: conf)
+          end
         end
         if port_record['ip'] != nil && port_record['ip'] != ''
-          threads << Thread.new(host_name,port_name, port_record['ip']) {|hn,pn,ip| output["#{hn.gsub(/ /,'_')}_#{pn.gsub(/ /,'_')}"] = ping_site(host: hn, interface: pn.gsub(/ /,'_'), ip: ip)  }
+          threads << Thread.new(host_name,port_name, port_record['ip']) do |hn,pn,ip| 
+            output["#{hn.gsub(/ /,'_')}_#{pn.gsub(/ /,'_')}"] = ping_site(host: hn, interface: pn.gsub(/ /,'_'), ip: ip)
+          end
         end
       end
     end
