@@ -1,0 +1,8 @@
+{
+  "switch_ssh_key": ["/home/rbur004/.ssh/ntr_srv_id_rsa"],
+  "switch_ssh_user": "robot",
+  "host_ssh_key": ["/home/rbur004/.ssh/ntr-switch-id_rsa"],
+  "host_ssh_user": "root",
+  "switches": ["x1","x2","x3","x4","x5","x6","x7"],
+  "web_dir": "/var/www/html/x/y"
+}

@@ -1,0 +1,213 @@
+<html>
+<head>
+  <title>UoA NeCTAR Network Status</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <META HTTP-EQUIV="refresh" CONTENT="900">
+  <script src="knownsites.js"></script>
+  <script src="imported_js/jquery-3.0.0.min.js"></script>
+  <script src="imported_js/wikk_ajax-min.js"></script>
+  <script>    
+    var flash_colour = '#00FFFF';
+    // sleep time expects milliseconds
+    function sleep (time) {
+      return new Promise((resolve) => setTimeout(resolve, time));
+    }
+        
+    // return array of [r,g,b,a] from any valid color. if failed returns undefined
+    // From posting by oriadam on stackoverflow.com.
+    function colorValues(color)
+    {
+        if (color === '')
+            return;
+        if (color.toLowerCase() === 'transparent')
+            return [0, 0, 0, 0];
+        if (color[0] === '#')
+        {
+            if (color.length < 7)
+            {
+                // convert #RGB and #RGBA to #RRGGBB and #RRGGBBAA
+                color = '#' + color[1] + color[1] + color[2] + color[2] + color[3] + color[3] + (color.length > 4 ? color[4] + color[4] : '');
+            }
+            return [parseInt(color.substr(1, 2), 16),
+                parseInt(color.substr(3, 2), 16),
+                parseInt(color.substr(5, 2), 16),
+                color.length > 7 ? parseInt(color.substr(7, 2), 16)/255 : 1];
+        }
+        if (color.indexOf('rgb') === -1)
+        {
+            // convert named colors
+            var temp_elem = document.body.appendChild(document.createElement('fictum')); // intentionally use unknown tag to lower chances of css rule override with !important
+            var flag = 'rgb(1, 2, 3)'; // this flag tested on chrome 59, ff 53, ie9, ie10, ie11, edge 14
+            temp_elem.style.color = flag;
+            if (temp_elem.style.color !== flag)
+                return; // color set failed - some monstrous css rule is probably taking over the color of our object
+            temp_elem.style.color = color;
+            if (temp_elem.style.color === flag || temp_elem.style.color === '')
+                return; // color parse failed
+            color = getComputedStyle(temp_elem).color;
+            document.body.removeChild(temp_elem);
+        }
+        if (color.indexOf('rgb') === 0)
+        {
+            if (color.indexOf('rgba') === -1)
+                color += ',1'; // convert 'rgb(R,G,B)' to 'rgb(R,G,B)A' which looks awful but will pass the regxep below
+            return color.match(/[\.\d]+/g).map(function (a)
+            {
+                return +a
+            });
+        }
+    }
+    
+    function highlight_rect(id, colour) {
+      var t = document.querySelector(".svgClass").getSVGDocument().getElementById(id);
+      if(t != null) {
+        samecolor = colorValues(t.style.fill).join(',') === colorValues(colour).join(',');
+        if(!samecolor) {
+          t.hold_fill = t.style.fill;
+          t.style.fill = colour
+          sleep(3000).then(() => {
+            t.style.fill = t.hold_fill
+          })
+        } 
+      }
+    }
+    
+    function highlight_line(id, colour) {
+      var t = document.querySelector(".svgClass").getSVGDocument().getElementById(id);
+      if(t != null) {
+        samecolor = colorValues(t.style.stroke).join(',') === colorValues(colour).join(',');
+        if(!samecolor) {
+          t.hold_stroke = t.style.stroke;
+          t.style.stroke = colour
+          sleep(3000).then(() => {
+            t.style.stroke = t.hold_stroke
+          })
+        }
+      }
+    }
+     
+    function flash_pair(id) {
+      if(id != null && window.known_sites != null && (record = window.known_sites[id]) != null) {
+        highlight_rect("rect_" + id, flash_colour)
+        var remote_id = record["remote_id"]
+        if( remote_id != null && remote_id != "" ) {
+          highlight_rect("rect_" + remote_id, flash_colour)
+          highlight_line("line_" + id + "-" + remote_id, flash_colour)
+          highlight_line("line_" + remote_id + "-" + id, flash_colour)
+        }
+      }
+    }
+    
+    function go_to_url(id) {
+      if(id != null && window.known_sites != null && (record = window.known_sites[id]) != null) {
+        if(record["url"] != null && record["url"] != "" ) {
+          window.location.href = record["url"];
+        } else { 
+          alert(id); 
+        }
+        return;
+      } else {
+        alert("Known_sites not loaded!\n" + id);
+      }
+    }
+
+    function set_rect_colour(id, colour) {
+      var t = document.querySelector(".svgClass").getSVGDocument().getElementById("rect_" + id);
+      if(t != null) {
+        t.hold_fill = colour
+        if( ! ( colorValues(t.style.fill).join(',') === colorValues(flash_colour).join(',') ) ) {
+          t.style.fill = t.hold_fill
+        }
+      }
+    }
+    
+    function set_line_colour(id, remote_id, colour) {
+      var t = document.querySelector(".svgClass").getSVGDocument().getElementById("line_" + id + "-" + remote_id);
+      if(t != null) {
+        t.style.stroke = colour
+      }
+    }
+
+    function errorHostStatusCallback(jqXHR, textStatus, errorMessage) {
+      alert(textStatus + "\n" + errorMessage);
+    }
+    
+    function set_date_of_last_status_check(datetime) {
+      var date_stamp = document.getElementById('date_stamp');
+      date_stamp.innerHTML = datetime
+    }
+    
+    function hostStatusCallback(data) {
+      try {
+        if(window.known_sites != null) {
+          for(var id in window.known_sites ) {
+            remote_id = window.known_sites[id]['remote_id']
+            if(data[id] != null) {
+              switch(data[id]['state']) {
+                case 'up':
+                  if(remote_id != null && remote_id != "") {
+                    set_rect_colour(id, 'green')
+                    set_line_colour(id, remote_id, 'black')
+                  } else {
+                    set_rect_colour(id, 'orange')
+                  }
+                  break
+                case 'down':
+                  if(remote_id != null && remote_id != "") {
+                    set_rect_colour(id, 'red')
+                    set_line_colour(id, remote_id, 'red')
+                  } else {
+                    set_rect_colour(id, 'black')
+                  }
+                  break
+                case 'key_error': //Have connection up at both ends, but the LACP keys don't match
+                  if(remote_id != null && remote_id != "") {
+                    set_rect_colour(id, 'blue')
+                    set_line_colour(id, remote_id, 'red')
+                  } else {
+                    set_rect_colour(id, 'orange')
+                  }
+                  break
+                default:
+                  set_rect_colour(id, 'purple')
+                  if(remote_id != null && remote_id != "") {
+                    set_line_colour(id, remote_id, 'black')
+                  }
+                  break
+              }
+            } else {
+              if(remote_id != null && remote_id != "") {
+                set_rect_colour(id, 'purple')
+              } else {
+                set_rect_colour(id, 'black')
+              }
+            }
+          }
+        }
+        if(data['date'] != null && data['date']['state'] != null) {
+          set_date_of_last_status_check(data['date']['state'])
+        }
+      } catch(e) { 
+        //ignore any errors. Will retry again and again, ...
+      }
+     //fill_text_view(data); 
+     get_site_status(60000); //Look again in 1 minute in ms.
+    } 
+
+    function get_site_status(repeat_time) {
+      wikk_ajax.delayed_ajax_get_call('host_status.json', {}, hostStatusCallback, errorHostStatusCallback, null, "json", true, repeat_time)      
+    }
+
+    function initialize() {
+      get_site_status(0)
+    }
+
+  </script>
+</head>
+<body onload="initialize();">
+  <table>
+    <tr><td align="right" id='date_stamp'>&nbsp;</td></tr>
+    <tr><td><object class="svgClass" id="status_graph" data="net.svg" type="image/svg+xml"></object></td></tr>
+  </table>
+</body>
+</html>
