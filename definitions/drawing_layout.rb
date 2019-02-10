@@ -24,10 +24,10 @@ def drawing_layout
         { :type => '4', :name => 'cop05-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #2
         { :type => '4', :name => 'cop06-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #3
         { :type => '4', :name => 'cop07-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #4
-        { :type => '4', :name => 'cop10-p', :ports => ['eno1','eno2','enp130s0f0','enp130s0f1'] }, #5
+        { :type => '4', :name => 'cop10-p', :ports => ['eno1','eno2','enp94s0f2','enp94s0f3'] },#5
         { :type => '4', :name => 'adm02-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #6
         { :type => '4', :name => 'ctr02-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #7
-        { :type => '4', :name => 'cop11-p', :ports => ['eno1','eno2','enp130s0f0','enp130s0f1'] }, #8
+        { :type => '4', :name => 'cop11-p', :ports => ['eno1','eno2','enp94s0f0','enp94s0f1'] }, #8
         { :type => '8', :name => 'sto12-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp130s0f0','enp130s0f1','enp130s0f2','enp130s0f3'] }, nil, #9,10
         { :type => '8', :name => 'sto05-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp132s0f0','enp132s0f1','enp130s0f2','enp130s0f3'] }, nil, #11,12
         { :type => '8', :name => 'sto06-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp132s0f0','enp132s0f1','enp130s0f2','enp130s0f3'] }, nil, #13,14
