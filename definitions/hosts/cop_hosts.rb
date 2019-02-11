@@ -88,8 +88,8 @@ module HOSTS
       'cop08-p' => { 
         'port_types' => {'T' => 4, 'G' => 2, 'iDrac' => 1},
         'ports' => { 
-          'enp129s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x4', 'port' => 'Te 1/7', 'Port-Channel' => 28 }, 'bond' => 0  },
-          'enp129s0f1'  => { 'label' => 'T2', 'remote' => {'host' => 'x6', 'port' => 'Te 1/7', 'Port-Channel' => 28 }, 'bond' => 0  },
+          'enp129s0f1'  => { 'label' => 'T1', 'remote' => {'host' => 'x4', 'port' => 'Te 1/7', 'Port-Channel' => 28 }, 'bond' => 0  },
+          'enp129s0f0'  => { 'label' => 'T2', 'remote' => {'host' => 'x6', 'port' => 'Te 1/7', 'Port-Channel' => 28 }, 'bond' => 0  },
           'enp2s0f0'  => { 'label' => 'T3', 'remote' => {'host' => 'x4', 'port' => 'Te 1/8', 'Port-Channel' => 28 }, 'bond' => 0  },
           'enp2s0f1'  => { 'label' => 'T4', 'remote' => {'host' => 'x6', 'port' => 'Te 1/8', 'Port-Channel' => 28 }, 'bond' => 0  },
           'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x2', 'port' => 'Gi 1/8'}, 'bond' => 1 },
@@ -113,9 +113,9 @@ module HOSTS
         'port_types' => {'T' => 4, 'G' => 2, 'iDrac' => 1},
         'ports' => { 
           'eno1'  => { 'label' => 'T1', 'remote' => {'host' => 'x5', 'port' => 'Te 1/9', 'Port-Channel' => 29 }, 'bond' => 0  },
-          'eno2'  => { 'label' => 'T2', 'remote' => {'host' => 'x7', 'port' => 'Te 1/9', 'Port-Channel' => 29 }, 'bond' => 0  },
-          'enp94s0f2'  => { 'label' => 'T3', 'remote' => {'host' => 'x5', 'port' => 'Te 1/10', 'Port-Channel' => 29 }, 'bond' => 0  },
-          'enp94s0f3'  => { 'label' => 'T4', 'remote' => {'host' => 'x7', 'port' => 'Te 1/10', 'Port-Channel' => 29 }, 'bond' => 0  },
+          'enp94s0f0'  => { 'label' => 'T2', 'remote' => {'host' => 'x7', 'port' => 'Te 1/9', 'Port-Channel' => 29 }, 'bond' => 0  },
+          'eno2'  => { 'label' => 'T3', 'remote' => {'host' => 'x5', 'port' => 'Te 1/10', 'Port-Channel' => 29 }, 'bond' => 0  },
+          'enp94s0f1'  => { 'label' => 'T4', 'remote' => {'host' => 'x7', 'port' => 'Te 1/10', 'Port-Channel' => 29 }, 'bond' => 0  },
           'eno3'  => { 'label' => 'G1', 'remote' => {'host' => 'x2', 'port' => 'Gi 1/10'}, 'bond' => 1 },
           'eno4'  => { 'label' => 'G2', 'remote' => {'host' => 'x3', 'port' => 'Gi 1/10'}, 'bond' => 1 },
           'iDrac'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/10'}, 'ip'=>'172.31.80.137' }
