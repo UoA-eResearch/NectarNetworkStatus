@@ -196,14 +196,14 @@ module HOSTS
       'sto13-p' => { 
         'port_types' => {'T' => 8, 'G' => 2, 'iDrac' => 1},
         'ports' => { 
-          'eno1'  => { 'label' => 'T1', 'remote' => {'host' => 'x5', 'port' => 'Te 1/37', 'Port-Channel' => 53 }, 'bond' => 0  },
-          'eno2'  => { 'label' => 'T2', 'remote' => {'host' => 'x7', 'port' => 'Te 1/37', 'Port-Channel' => 53 }, 'bond' => 0  },
-          'enp131s0f0'  => { 'label' => 'T3', 'remote' => {'host' => 'x5', 'port' => 'Te 1/38', 'Port-Channel' => 53 }, 'bond' => 0  },
-          'enp131s0f1'  => { 'label' => 'T4', 'remote' => {'host' => 'x7', 'port' => 'Te 1/38', 'Port-Channel' => 53 }, 'bond' => 0  },
-          'enp130s0f0'  => { 'label' => 'T5', 'remote' => {'host' => 'x5', 'port' => 'Te 1/39', 'Port-Channel' => 73 }, 'bond' => 2 },
-          'enp130s0f1'  => { 'label' => 'T6', 'remote' => {'host' => 'x7', 'port' => 'Te 1/39', 'Port-Channel' => 73 }, 'bond' => 2 },
-          'enp130s0f2'  => { 'label' => 'T7', 'remote' => {'host' => 'x5', 'port' => 'Te 1/40', 'Port-Channel' => 73 }, 'bond' => 2 },
-          'enp130s0f3'  => { 'label' => 'T8', 'remote' => {'host' => 'x7', 'port' => 'Te 1/40', 'Port-Channel' => 73 }, 'bond' => 2 },
+          'eno1'  => { 'label' => 'T1', 'remote' => {'host' => 'x4', 'port' => 'Te 1/37', 'Port-Channel' => 53 }, 'bond' => 0  },
+          'eno2'  => { 'label' => 'T2', 'remote' => {'host' => 'x6', 'port' => 'Te 1/37', 'Port-Channel' => 53 }, 'bond' => 0  },
+          'enp131s0f0'  => { 'label' => 'T3', 'remote' => {'host' => 'x4', 'port' => 'Te 1/38', 'Port-Channel' => 53 }, 'bond' => 0  },
+          'enp131s0f1'  => { 'label' => 'T4', 'remote' => {'host' => 'x6', 'port' => 'Te 1/38', 'Port-Channel' => 53 }, 'bond' => 0  },
+          'enp130s0f0'  => { 'label' => 'T5', 'remote' => {'host' => 'x4', 'port' => 'Te 1/39', 'Port-Channel' => 73 }, 'bond' => 2 },
+          'enp130s0f1'  => { 'label' => 'T6', 'remote' => {'host' => 'x6', 'port' => 'Te 1/39', 'Port-Channel' => 73 }, 'bond' => 2 },
+          'enp130s0f2'  => { 'label' => 'T7', 'remote' => {'host' => 'x4', 'port' => 'Te 1/40', 'Port-Channel' => 73 }, 'bond' => 2 },
+          'enp130s0f3'  => { 'label' => 'T8', 'remote' => {'host' => 'x6', 'port' => 'Te 1/40', 'Port-Channel' => 73 }, 'bond' => 2 },
           'eno3'  => { 'label' => 'G1', 'remote' => {'host' => 'x2', 'port' => 'Gi 1/37'}, 'bond' => 1 },
           'eno4'  => { 'label' => 'G2', 'remote' => {'host' => 'x3', 'port' => 'Gi 1/37'}, 'bond' => 1 },
           'iDrac'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/37'}, 'ip'=>'172.31.80.76' }

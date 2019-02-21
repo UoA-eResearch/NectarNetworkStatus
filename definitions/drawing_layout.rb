@@ -28,13 +28,13 @@ def drawing_layout
         { :type => '4', :name => 'adm01-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #6
         { :type => '4', :name => 'ctr01-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #7
         { :type => '4', :name => 'ctr03-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #8
-        { :type => '8', :name => 'sto09-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp130s0f0','enp130s0f1','enp130s0f2','enp130s0f3'] }, nil, #9,10
+        { :type => '8', :name => 'sto09-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #9,10
         { :type => '8', :name => 'sto01-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #11,12
         { :type => '8', :name => 'sto02-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #13,14
         { :type => '8', :name => 'sto03-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #15,16
         { :type => '8', :name => 'sto04-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #17,18
-        { :type => '8', :name => 'sto10-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp130s0f0','enp130s0f1','enp130s0f2','enp130s0f3'] }, nil, #19,20
-        { :type => '8', :name => 'sto11-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp130s0f0','enp130s0f1','enp130s0f2','enp130s0f3'] }, nil, #21,22
+        { :type => '8', :name => 'sto13-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #19,20
+        { :type => '8', :name => 'sto11-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #21,22
         nil,                              #22
         nil,                              #23
         nil                               #24
@@ -58,13 +58,13 @@ def drawing_layout
         { :type => '4', :name => 'adm02-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #6
         { :type => '4', :name => 'ctr02-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #7
         { :type => '4', :name => 'cop11-p', :ports => ['eno1','eno2','enp94s0f0','enp94s0f1'] }, #8
-        { :type => '8', :name => 'sto12-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp130s0f0','enp130s0f1','enp130s0f2','enp130s0f3'] }, nil, #9,10
+        { :type => '8', :name => 'sto12-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #9,10
         { :type => '8', :name => 'sto05-p', :ports => ['eno1','eno2','enp132s0f0','enp132s0f1','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #11,12
         { :type => '8', :name => 'sto06-p', :ports => ['eno1','eno2','enp132s0f0','enp132s0f1','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #13,14
         { :type => '8', :name => 'sto07-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #15,16
         { :type => '8', :name => 'sto08-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #17,18
-        { :type => '8', :name => 'sto13-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp130s0f0','enp130s0f1','enp130s0f2','enp130s0f3'] }, nil, #19,20
-        { :type => '8', :name => 'sto14-p', :ports => ['eno1','eno2','enp131s0f0','enp131s0f1','enp130s0f0','enp130s0f1','enp130s0f2','enp130s0f3'] }, nil, #21,22
+        { :type => '8', :name => 'sto10-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #19,20
+        { :type => '8', :name => 'sto14-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #21,22
         nil,                              #23
         nil                               #24
       ]
