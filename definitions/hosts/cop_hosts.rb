@@ -133,6 +133,26 @@ module HOSTS
           'iDrac'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/11'}, 'ip'=>'172.31.80.138' }
         }
       },
+      'cop-e1' => { 
+        'port_types' => {'T' => 2, 'G' => 2, 'IMM' => 1},
+        'ports' => { 
+          'enp1s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'Eth 1/1/1', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'enp1s0f1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'Eth 1/1/1', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/17'}, 'bond' => 1 },
+          'eno2'  => { 'label' => 'G2', 'remote' => {'host' => '', 'port' => ''}, 'bond' => 1 },
+          'IMM'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/39'}, 'ip'=>'172.31.80.138' }
+        }
+      },
+      'cop-e2' => { 
+        'port_types' => {'T' => 2, 'G' => 2, 'IMM' => 1},
+        'ports' => { 
+          'enp1s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'Eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'enp1s0f1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'Eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/18'}, 'bond' => 1 },
+          'eno2'  => { 'label' => 'G2', 'remote' => {'host' => '', 'port' => ''}, 'bond' => 1 },
+          'IMM'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/40'}, 'ip'=>'172.31.80.138' }
+        }
+      },
     }
   end
 end

@@ -64,7 +64,7 @@ module Switch_Port_Status
     output = ""
   
     begin
-      response = ssh_host(host: host, cmd: "show int stat", key_type: :keys, key: conf.switch_ssh_key, user: conf.switch_ssh_user )
+      response = ssh_host(host: host, cmd: "show interface status", key_type: :keys, key: conf.switch_ssh_key, user: conf.switch_ssh_user )
     rescue StandardError => e
       puts e
     rescue NotImplementedError => e

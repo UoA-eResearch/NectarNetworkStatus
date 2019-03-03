@@ -11,7 +11,7 @@ KNOWN_SERVERS = "#{File.dirname(__FILE__)}/../www/knownsites.js"
 drawing_layout #Load the server and switch box layout.
 
 File.open(SVG_FILE, "w") do |f|
-  SVG.output(width: 1600, height: 1000, fd: f) do |svg|
+  SVG.output(width: 2500, height: 1000, fd: f) do |svg|
     @switch_pairs.each do |pair|
       pair[:switches].each do |switch|
         draw_switch( svg: svg, name: switch[0], origin: switch[1], ports: switch[2] )

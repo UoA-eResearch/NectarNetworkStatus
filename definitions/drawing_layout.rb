@@ -2,6 +2,7 @@ SWITCH_PAIR_1_X = 0
 SWITCH_PAIR_2_X = INTERSWITCH_DISTANCE  + SWITCH_WIDTH * 4
 SWITCH_PAIR_3_X = (INTERSWITCH_DISTANCE  + SWITCH_WIDTH * 4) * 2
 SWITCH_PAIR_4_X = (INTERSWITCH_DISTANCE  + SWITCH_WIDTH * 4) * 3
+SWITCH_PAIR_5_X = (INTERSWITCH_DISTANCE  + SWITCH_WIDTH * 4) * 4
 SWITCH_Y_OFFSET = SERVER_HEIGHT * 2
 
 Point = Struct.new(:x, :y)
@@ -29,10 +30,10 @@ def drawing_layout
         { :type => '4', :name => 'ctr01-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #7
         { :type => '4', :name => 'ctr03-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #8
         { :type => '8', :name => 'sto09-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #9,10
-        { :type => '8', :name => 'sto01-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #11,12
-        { :type => '8', :name => 'sto02-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #13,14
-        { :type => '8', :name => 'sto03-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #15,16
-        { :type => '8', :name => 'sto04-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #17,18
+        { :type => '8', :name => 'sto01-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #11,12
+        { :type => '8', :name => 'sto02-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #13,14
+        { :type => '8', :name => 'sto03-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #15,16
+        { :type => '8', :name => 'sto04-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #17,18
         { :type => '8', :name => 'sto13-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #19,20
         { :type => '8', :name => 'sto11-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #21,22
         nil,                              #22
@@ -59,10 +60,10 @@ def drawing_layout
         { :type => '4', :name => 'ctr02-p', :ports => ['eno1','eno2','enp3s0f0','enp3s0f1'] }, #7
         { :type => '4', :name => 'cop11-p', :ports => ['eno1','eno2','enp94s0f0','enp94s0f1'] }, #8
         { :type => '8', :name => 'sto12-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #9,10
-        { :type => '8', :name => 'sto05-p', :ports => ['eno1','eno2','enp132s0f0','enp132s0f1','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #11,12
-        { :type => '8', :name => 'sto06-p', :ports => ['eno1','eno2','enp132s0f0','enp132s0f1','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #13,14
-        { :type => '8', :name => 'sto07-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #15,16
-        { :type => '8', :name => 'sto08-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp131s0f0','enp131s0f1','enp130s0f1','enp130s0f0'] }, nil, #17,18
+        { :type => '8', :name => 'sto05-p', :ports => ['eno1','eno2','enp132s0f0','enp132s0f1','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #11,12
+        { :type => '8', :name => 'sto06-p', :ports => ['eno1','eno2','enp132s0f0','enp132s0f1','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #13,14
+        { :type => '8', :name => 'sto07-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #15,16
+        { :type => '8', :name => 'sto08-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #17,18
         { :type => '8', :name => 'sto10-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #19,20
         { :type => '8', :name => 'sto14-p', :ports => ['eno1','eno2','enp130s0f3','enp130s0f2','enp130s0f1','enp130s0f0','enp131s0f0','enp131s0f1'] }, nil, #21,22
         nil,                              #23
@@ -130,10 +131,10 @@ def drawing_layout
       ]
     },
     {
-      :host_origin_x => SWITCH_PAIR_4_X + SWITCH_WIDTH * 2,
+      :host_origin_x => SWITCH_PAIR_5_X + SWITCH_WIDTH * 2,
       :host_origin_y => SWITCH_Y_OFFSET,
       :switches => [
-        [ 'x1',  Point.new(SWITCH_PAIR_4_X, SWITCH_Y_OFFSET), [
+        [ 'x1',  Point.new(SWITCH_PAIR_5_X, SWITCH_Y_OFFSET), [
             'Gi 1/1','Gi 1/2','Gi 1/3','Gi 1/4','Gi 1/5','Gi 1/6','Gi 1/7','Gi 1/8','Gi 1/9','Gi 1/10','Gi 1/11','Gi 1/12','Gi 1/13','Gi 1/14','Gi 1/15','Gi 1/16','Gi 1/17','Gi 1/18','Gi 1/19','Gi 1/20','Gi 1/21','Gi 1/22','Gi 1/23','Gi 1/24','Gi 1/25','Gi 1/26','Gi 1/27','Gi 1/28','Gi 1/29','Gi 1/30','Gi 1/31','Gi 1/32','Gi 1/33','Gi 1/34','Gi 1/35','Gi 1/36','Gi 1/37','Gi 1/38','Gi 1/39','Gi 1/40','Gi 1/41','Gi 1/42','Gi 1/43','Gi 1/44','Gi 1/45','Gi 1/46','Gi 1/47','Gi 1/48','Te 1/49','Te 1/50','Te 1/51','Te 1/52'] ],
       ],
       :hosts => [
@@ -153,14 +154,14 @@ def drawing_layout
         { :type => '1r', :name => 'ctr03-p', :ports => ['iDrac'] }, #14
         { :type => '1l', :name => 'adm02-p', :ports => ['iDrac'] }, #15
         { :type => '1r', :name => 'ctr02-p', :ports => ['iDrac'] }, #16
-        nil,                              #17
-        nil,                              #18
+        { :type => '1l', :name => 'cop-e1', :ports => ['IMM'] }, #17
+        { :type => '1r', :name => 'cop-e2', :ports => ['IMM'] }, #18
         nil,                              #19
         nil,                              #20
         nil,                              #21
         nil,                              #22
-        nil,                              #23
-        nil,                              #24
+        { :type => '1r', :name => 'x8', :ports => ['Ma 1/1'] }, #23
+        { :type => '1l', :name => 'x9', :ports => ['Ma 1/1'] }, #24
         { :type => '1l', :name => 'sto01-p', :ports => ['iDrac'] }, #25
         { :type => '1r', :name => 'sto02-p', :ports => ['iDrac'] }, #26
         { :type => '1l', :name => 'sto03-p', :ports => ['iDrac'] }, #27
@@ -175,8 +176,8 @@ def drawing_layout
         { :type => '1r', :name => 'sto12-p', :ports => ['iDrac'] }, #36
         { :type => '1l', :name => 'sto13-p', :ports => ['iDrac'] }, #37
         { :type => '1r', :name => 'sto14-p', :ports => ['iDrac'] }, #38
-        nil,                              #39
-        nil,                              #40
+        { :type => '1l', :name => 'x10', :ports => ['Ma 1/1/1'] }, #39
+        { :type => '1r', :name => 'x11', :ports => ['Ma 1/1/1'] }, #40
         nil,  #41
         { :type => '1r', :name => 'x1', :ports => ['Ma 1/1'] }, #42
         { :type => '1l', :name => 'x7', :ports => ['Ma 1/1'] }, #43
@@ -190,7 +191,73 @@ def drawing_layout
         { :type => '1l', :name => 'TDC_BR', :ports => ['c4'] }, #51
         { :type => '1r', :name => 'OGG_BR', :ports => ['c4'] }, #52
       ]
-    }
+    },
+    {
+      :host_origin_x => SWITCH_PAIR_4_X + SWITCH_WIDTH * 2,
+      :host_origin_y => SWITCH_Y_OFFSET,
+      :switches => [
+        [ 'x10', Point.new(SWITCH_PAIR_4_X, SWITCH_Y_OFFSET), [
+          'Eth 1/1/1','Eth 1/1/2','Eth 1/1/3','Eth 1/1/4','Eth 1/1/5','Eth 1/1/6','Eth 1/1/7','Eth 1/1/8','Eth 1/1/9','Eth 1/1/10','Eth 1/1/12','Eth 1/1/13','Eth 1/1/14','Eth 1/1/15','Eth 1/1/16','Eth 1/1/17','Eth 1/1/11', 'Eth 1/1/18','Eth 1/1/19','Eth 1/1/20','Eth 1/1/25','Eth 1/1/26','Eth 1/1/27','Eth 1/1/21','Eth 1/1/28','Eth 1/1/29','Eth 1/1/30','Eth 1/1/22','Eth 1/1/31','Eth 1/1/32','Eth 1/1/33','Eth 1/1/23','Eth 1/1/34','Eth 1/1/35','Eth 1/1/36','Eth 1/1/24','Eth 1/1/37','Eth 1/1/38','Eth 1/1/39','Eth 1/1/40','Eth 1/1/41','Eth 1/1/42','Eth 1/1/43','Eth 1/1/44','Eth 1/1/45','Eth 1/1/46','Eth 1/1/47','Eth 1/1/48','Eth 1/1/49','Eth 1/1/50','Eth 1/1/51','Eth 1/1/52','Eth 1/1/53:1','Eth 1/1/54:1'] ],
+        [ 'x11', Point.new(SWITCH_PAIR_4_X + INTERSWITCH_DISTANCE + SWITCH_WIDTH, SWITCH_Y_OFFSET), [
+          'Eth 1/1/1','Eth 1/1/2','Eth 1/1/3','Eth 1/1/4','Eth 1/1/5','Eth 1/1/6','Eth 1/1/7','Eth 1/1/8','Eth 1/1/9','Eth 1/1/10','Eth 1/1/12','Eth 1/1/13','Eth 1/1/14','Eth 1/1/15','Eth 1/1/16','Eth 1/1/17','Eth 1/1/11', 'Eth 1/1/18','Eth 1/1/19','Eth 1/1/20','Eth 1/1/25','Eth 1/1/26','Eth 1/1/27','Eth 1/1/21','Eth 1/1/28','Eth 1/1/29','Eth 1/1/30','Eth 1/1/22','Eth 1/1/31','Eth 1/1/32','Eth 1/1/33','Eth 1/1/23','Eth 1/1/34','Eth 1/1/35','Eth 1/1/36','Eth 1/1/24','Eth 1/1/37','Eth 1/1/38','Eth 1/1/39','Eth 1/1/40','Eth 1/1/41','Eth 1/1/42','Eth 1/1/43','Eth 1/1/44','Eth 1/1/45','Eth 1/1/46','Eth 1/1/47','Eth 1/1/48','Eth 1/1/49','Eth 1/1/50','Eth 1/1/51','Eth 1/1/52','Eth 1/1/53:1','Eth 1/1/54:1'] ],
+      ],
+      :hosts => [
+        { :type => '2l', :name => 'cop-e1', :ports => ['enp1s0f0','enp1s0f1'] }, #1
+        { :type => '2r', :name => 'cop-e2', :ports => ['enp1s0f0','enp1s0f1'] }, #2
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #3
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #4
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #5
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #6
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #7
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #8
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #9
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #10
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #11
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #12
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #13
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #14
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #15
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #16
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #17
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #18
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #19
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #20
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #21
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #22
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #23
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #24
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #25
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #26
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #27
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #28
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #29
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #30
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #31
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #32
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #33
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #34
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #35
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #36
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #37
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #38
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #39
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #40
+       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #41
+       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #42
+       nil, #( :type => '2l', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #43
+       nil, #( :type => '2r', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #44
+       nil, #( :type => '2l', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #45
+       nil, #( :type => '2r', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #46
+       nil, #( :type => '2l', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #47
+       nil, #( :type => '2r', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #48
+        nil,                              #49
+        nil,                              #50
+        nil,                              #51
+        nil,                              #52
+        nil,                              #53
+        nil,                              #54
+      ]
+    },
   ]
 
 end
