@@ -3,3 +3,4 @@ www/host_status.json
 www/knownsites.js
 www/net.svg
 conf/config.json
+conf/auth.json

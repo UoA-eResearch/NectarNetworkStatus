@@ -37,7 +37,6 @@ module Switch_Port_Status
     end
   end
 =end
-
   def self.init_bounds
     #Header gives us fixed width field sizes
     @port_s = 0
