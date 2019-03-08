@@ -51,12 +51,12 @@ module HOSTS
           'Te 1/46' => {  'label' => '46', 'remote' => {'host' => 'x2', 'port' => 'Te 1/49'}, 'Port-Channel' => 6 },
           'Te 1/47' => {  'label' => '47', 'remote' => {'host' => 'x1', 'port' => 'Te 1/49'}, 'Port-Channel' => 4 },
           'Te 1/48' => {  'label' => '48', 'remote' => {'host' => '', 'port' => ''} },  #Uplink to ITS (but was cabled to X1 in error)
-          'Fo 1/49' => {  'label' => 'F1', 'remote' => {'host' => 'x5', 'port' => 'Fo 1/49'}, 'Port-Channel' => 3 },
-          'Fo 1/50' => {  'label' => 'F2', 'remote' => {'host' => 'x7', 'port' => 'Fo 1/49'}, 'Port-Channel' => 3 },
-          'Fo 1/51' => {  'label' => 'F3', 'remote' => {'host' => 'x6', 'port' => 'Fo 1/51'}, 'Port-Channel' => 1 },
-          'Fo 1/52' => {  'label' => 'F4', 'remote' => {'host' => 'x6', 'port' => 'Fo 1/52'}, 'Port-Channel' => 1 },
-          'Fo 1/53' => {  'label' => 'F5', 'remote' => {'host' => 'x11', 'port' => 'Eth 1/1/53:1'} },
-          'Fo 1/54' => {  'label' => 'F6', 'remote' => {'host' => 'x11', 'port' => 'Eth 1/1/54:1'} },
+          'fo 1/49' => {  'label' => 'F1', 'remote' => {'host' => 'x5', 'port' => 'fo 1/49'}, 'Port-Channel' => 3 },
+          'fo 1/50' => {  'label' => 'F2', 'remote' => {'host' => 'x7', 'port' => 'fo 1/49'}, 'Port-Channel' => 3 },
+          'fo 1/51' => {  'label' => 'F3', 'remote' => {'host' => 'x6', 'port' => 'fo 1/51'}, 'Port-Channel' => 1 },
+          'fo 1/52' => {  'label' => 'F4', 'remote' => {'host' => 'x6', 'port' => 'fo 1/52'}, 'Port-Channel' => 1 },
+          'fo 1/53' => {  'label' => 'F5', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/53:1'} },
+          'fo 1/54' => {  'label' => 'F6', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/54:1'} },
           'Ma 1/1'  => {  'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/46'}, 'ip'=>'172.31.80.4' },
         }
       }
