@@ -133,24 +133,44 @@ module HOSTS
           'iDrac'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/11'}, 'ip'=>'172.31.80.138' }
         }
       },
-      'cop-e1' => { 
+      'e18u19' => { 
         'port_types' => {'T' => 2, 'G' => 2, 'IMM' => 1},
         'ports' => { 
-          'enp1s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/1', 'Port-Channel' => 0 }, 'bond' => 0  },
-          'enp1s0f1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/1', 'Port-Channel' => 0 }, 'bond' => 0  },
-          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/17'}, 'bond' => 1 },
+          'enp32s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/1', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'enp32s0f1d1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/1', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x12', 'port' => 'Eth 1/19'}, 'bond' => 1 },
           'eno2'  => { 'label' => 'G2', 'remote' => {'host' => '', 'port' => ''}, 'bond' => 1 },
-          'IMM'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/39'}, 'ip'=>'172.31.80.138' }
+          'IMM'  => { 'label' => 'M', 'remote' => {'host' => '', 'port' => ''}, 'ip'=>'172.31.81.19' }
         }
       },
-      'cop-e2' => { 
+      'e18u20' => { 
         'port_types' => {'T' => 2, 'G' => 2, 'IMM' => 1},
         'ports' => { 
-          'enp1s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
-          'enp1s0f1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
-          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/18'}, 'bond' => 1 },
+          'enp32s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'enp32s0f1d1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x12', 'port' => 'Eth 1/20'}, 'bond' => 1 },
           'eno2'  => { 'label' => 'G2', 'remote' => {'host' => '', 'port' => ''}, 'bond' => 1 },
-          'IMM'  => { 'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/40'}, 'ip'=>'172.31.80.138' }
+          'IMM'  => { 'label' => 'M', 'remote' => {'host' => '', 'port' => ''}, 'ip'=>'172.31.81.20' }
+        }
+      },
+      'e18u23' => { 
+        'port_types' => {'T' => 2, 'G' => 2, 'IMM' => 1},
+        'ports' => { 
+          'enp32s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'enp32s0f1d1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x12', 'port' => 'Eth 1/23'}, 'bond' => 1 },
+          'eno2'  => { 'label' => 'G2', 'remote' => {'host' => '', 'port' => ''}, 'bond' => 1 },
+          'IMM'  => { 'label' => 'M', 'remote' => {'host' => '', 'port' => ''}, 'ip'=>'172.31.81.23' }
+        }
+      },
+      'e18u24' => { 
+        'port_types' => {'T' => 2, 'G' => 2, 'IMM' => 1},
+        'ports' => { 
+          'enp32s0f0'  => { 'label' => 'T1', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'enp32s0f1d1'  => { 'label' => 'T2', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/2', 'Port-Channel' => 0 }, 'bond' => 0  },
+          'eno1'  => { 'label' => 'G1', 'remote' => {'host' => 'x12', 'port' => 'Eth 1/24'}, 'bond' => 1 },
+          'eno2'  => { 'label' => 'G2', 'remote' => {'host' => '', 'port' => ''}, 'bond' => 1 },
+          'IMM'  => { 'label' => 'M', 'remote' => {'host' => '', 'port' => ''}, 'ip'=>'172.31.81.24' }
         }
       },
     }

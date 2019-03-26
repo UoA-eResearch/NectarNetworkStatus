@@ -202,10 +202,10 @@ def drawing_layout
           'eth 1/1/1','eth 1/1/2','eth 1/1/3','eth 1/1/4','eth 1/1/5','eth 1/1/6','eth 1/1/7','eth 1/1/8','eth 1/1/9','eth 1/1/10','eth 1/1/12','eth 1/1/13','eth 1/1/14','eth 1/1/15','eth 1/1/16','eth 1/1/17','eth 1/1/11', 'eth 1/1/18','eth 1/1/19','eth 1/1/20','eth 1/1/25','eth 1/1/26','eth 1/1/27','eth 1/1/21','eth 1/1/28','eth 1/1/29','eth 1/1/30','eth 1/1/22','eth 1/1/31','eth 1/1/32','eth 1/1/33','eth 1/1/23','eth 1/1/34','eth 1/1/35','eth 1/1/36','eth 1/1/24','eth 1/1/37','eth 1/1/38','eth 1/1/39','eth 1/1/40','eth 1/1/41','eth 1/1/42','eth 1/1/43','eth 1/1/44','eth 1/1/45','eth 1/1/46','eth 1/1/47','eth 1/1/48','eth 1/1/49','eth 1/1/50','eth 1/1/51','eth 1/1/52','eth 1/1/53:1','eth 1/1/54:1'] ],
       ],
       :hosts => [
-        { :type => '2l', :name => 'cop-e1', :ports => ['enp1s0f0','enp1s0f1'] }, #1
-        { :type => '2r', :name => 'cop-e2', :ports => ['enp1s0f0','enp1s0f1'] }, #2
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #3
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #4
+        { :type => '2l', :name => 'e18u23', :ports => ['enp32s0f0','enp32s0f1d1'] }, #1
+        { :type => '2r', :name => 'e18u19', :ports => ['enp32s0f0','enp32s0f1d1'] }, #2
+        { :type => '2l', :name => 'e18u24', :ports => ['enp32s0f0','enp32s0f1d1'] }, #3
+        { :type => '2r', :name => 'e18u20', :ports => ['enp32s0f0','enp32s0f1d1'] }, #4
        nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #5
        nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #6
        nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #7

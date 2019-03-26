@@ -3,10 +3,10 @@ module HOSTS
     { 'x11' => { 
         'port_types' => {'E25' => 48, 'E100' => 6, 'Ma' => 1},
         'ports' => {
-          'eth 1/1/1'  => {  'label' => '1', 'remote' => {'host' => 'cop-e1', 'port' => 'enp1s0f1'} },
-          'eth 1/1/2'  => {  'label' => '2', 'remote' => {'host' => 'cop-e2', 'port' => 'enp1s0f1'} },
-          'eth 1/1/3'  => {  'label' => '3', 'remote' => {'host' => '', 'port' => ''} },
-          'eth 1/1/4'  => {  'label' => '4', 'remote' => {'host' => '', 'port' => ''} },
+          'eth 1/1/1'  => {  'label' => '1', 'remote' => {'host' => 'e18u23', 'port' => 'enp32s0f1d1'} },
+          'eth 1/1/2'  => {  'label' => '2', 'remote' => {'host' => 'e18u19', 'port' => 'enp32s0f1d1'} },
+          'eth 1/1/3'  => {  'label' => '3', 'remote' => {'host' => 'e18u24', 'port' => 'enp32s0f1d1'} },
+          'eth 1/1/4'  => {  'label' => '4', 'remote' => {'host' => 'e18u20', 'port' => 'enp32s0f1d1'} },
           'eth 1/1/5'  => {  'label' => '5', 'remote' => {'host' => '', 'port' => ''} },
           'eth 1/1/6'  => {  'label' => '6', 'remote' => {'host' => '', 'port' => ''} },
           'eth 1/1/7'  => {  'label' => '7', 'remote' => {'host' => '', 'port' => ''} },
