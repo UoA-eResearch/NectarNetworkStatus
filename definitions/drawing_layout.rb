@@ -197,15 +197,15 @@ def drawing_layout
       :host_origin_y => SWITCH_Y_OFFSET,
       :switches => [
         [ 'x10', Point.new(SWITCH_PAIR_4_X, SWITCH_Y_OFFSET), [
-          'eth 1/1/1','eth 1/1/2','eth 1/1/3','eth 1/1/4','eth 1/1/5','eth 1/1/6','eth 1/1/7','eth 1/1/8','eth 1/1/9','eth 1/1/10','eth 1/1/12','eth 1/1/13','eth 1/1/14','eth 1/1/15','eth 1/1/16','eth 1/1/17','eth 1/1/11', 'eth 1/1/18','eth 1/1/19','eth 1/1/20','eth 1/1/25','eth 1/1/26','eth 1/1/27','eth 1/1/21','eth 1/1/28','eth 1/1/29','eth 1/1/30','eth 1/1/22','eth 1/1/31','eth 1/1/32','eth 1/1/33','eth 1/1/23','eth 1/1/34','eth 1/1/35','eth 1/1/36','eth 1/1/24','eth 1/1/37','eth 1/1/38','eth 1/1/39','eth 1/1/40','eth 1/1/41','eth 1/1/42','eth 1/1/43','eth 1/1/44','eth 1/1/45','eth 1/1/46','eth 1/1/47','eth 1/1/48','eth 1/1/49','eth 1/1/50','eth 1/1/51','eth 1/1/52','eth 1/1/53:1','eth 1/1/54:1'] ],
+          'eth 1/1/1','eth 1/1/2','eth 1/1/3','eth 1/1/4','eth 1/1/5','eth 1/1/6','eth 1/1/7','eth 1/1/8','eth 1/1/9','eth 1/1/10','eth 1/1/11','eth 1/1/12','eth 1/1/13','eth 1/1/14','eth 1/1/15','eth 1/1/16','eth 1/1/17','eth 1/1/18','eth 1/1/19','eth 1/1/20','eth 1/1/21','eth 1/1/22','eth 1/1/23','eth 1/1/24','eth 1/1/25','eth 1/1/26','eth 1/1/27','eth 1/1/28','eth 1/1/29','eth 1/1/30','eth 1/1/31','eth 1/1/32','eth 1/1/33','eth 1/1/34','eth 1/1/35','eth 1/1/36','eth 1/1/37','eth 1/1/38','eth 1/1/39','eth 1/1/40','eth 1/1/41','eth 1/1/42','eth 1/1/43','eth 1/1/44','eth 1/1/45','eth 1/1/46','eth 1/1/47','eth 1/1/48','eth 1/1/49','eth 1/1/50','eth 1/1/51','eth 1/1/52','eth 1/1/53:1','eth 1/1/54:1'] ],
         [ 'x11', Point.new(SWITCH_PAIR_4_X + INTERSWITCH_DISTANCE + SWITCH_WIDTH, SWITCH_Y_OFFSET), [
-          'eth 1/1/1','eth 1/1/2','eth 1/1/3','eth 1/1/4','eth 1/1/5','eth 1/1/6','eth 1/1/7','eth 1/1/8','eth 1/1/9','eth 1/1/10','eth 1/1/12','eth 1/1/13','eth 1/1/14','eth 1/1/15','eth 1/1/16','eth 1/1/17','eth 1/1/11', 'eth 1/1/18','eth 1/1/19','eth 1/1/20','eth 1/1/25','eth 1/1/26','eth 1/1/27','eth 1/1/21','eth 1/1/28','eth 1/1/29','eth 1/1/30','eth 1/1/22','eth 1/1/31','eth 1/1/32','eth 1/1/33','eth 1/1/23','eth 1/1/34','eth 1/1/35','eth 1/1/36','eth 1/1/24','eth 1/1/37','eth 1/1/38','eth 1/1/39','eth 1/1/40','eth 1/1/41','eth 1/1/42','eth 1/1/43','eth 1/1/44','eth 1/1/45','eth 1/1/46','eth 1/1/47','eth 1/1/48','eth 1/1/49','eth 1/1/50','eth 1/1/51','eth 1/1/52','eth 1/1/53:1','eth 1/1/54:1'] ],
+          'eth 1/1/1','eth 1/1/2','eth 1/1/3','eth 1/1/4','eth 1/1/5','eth 1/1/6','eth 1/1/7','eth 1/1/8','eth 1/1/9','eth 1/1/10','eth 1/1/11','eth 1/1/12','eth 1/1/13','eth 1/1/14','eth 1/1/15','eth 1/1/16','eth 1/1/17','eth 1/1/18','eth 1/1/19','eth 1/1/20','eth 1/1/21','eth 1/1/22','eth 1/1/23','eth 1/1/24','eth 1/1/25','eth 1/1/26','eth 1/1/27','eth 1/1/28','eth 1/1/29','eth 1/1/30','eth 1/1/31','eth 1/1/32','eth 1/1/33','eth 1/1/34','eth 1/1/35','eth 1/1/36','eth 1/1/37','eth 1/1/38','eth 1/1/39','eth 1/1/40','eth 1/1/41','eth 1/1/42','eth 1/1/43','eth 1/1/44','eth 1/1/45','eth 1/1/46','eth 1/1/47','eth 1/1/48','eth 1/1/49','eth 1/1/50','eth 1/1/51','eth 1/1/52','eth 1/1/53:1','eth 1/1/54:1'] ],
       ],
       :hosts => [
-        { :type => '2l', :name => 'e18u23', :ports => ['enp32s0f0','enp32s0f1d1'] }, #1
-        { :type => '2r', :name => 'e18u19', :ports => ['enp32s0f0','enp32s0f1d1'] }, #2
-        { :type => '2l', :name => 'e18u24', :ports => ['enp32s0f0','enp32s0f1d1'] }, #3
-        { :type => '2r', :name => 'e18u20', :ports => ['enp32s0f0','enp32s0f1d1'] }, #4
+       nil, #1
+       nil, #2
+       nil, #3
+       nil, #4
        nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #5
        nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #6
        nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #7
@@ -225,31 +225,31 @@ def drawing_layout
        nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #21
        nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #22
        nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #23
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #24
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #25
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #26
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #27
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #28
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #29
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #30
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #31
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #32
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #33
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #34
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #35
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #36
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #37
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #38
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #39
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #40
-       nil, #( :type => '2l', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #41
-       nil, #( :type => '2r', :name => 'cop-e', :ports => ['enp1s0f0','enp1s0f1'] }, #42
-       nil, #( :type => '2l', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #43
-       nil, #( :type => '2r', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #44
-       nil, #( :type => '2l', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #45
-       nil, #( :type => '2r', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #46
-       nil, #( :type => '2l', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #47
-       nil, #( :type => '2r', :name => 'cop-d', :ports => ['enp1s0f0','enp1s0f1'] }, #48
+       { :type => '2l', :name => 'e18u20', :ports => ['enp32s0f0','enp32s0f1d1'] }, #24
+       { :type => '2r', :name => 'e18u23', :ports => ['enp32s0f0','enp32s0f1d1'] }, #25
+       { :type => '2l', :name => 'e18u19', :ports => ['enp32s0f0','enp32s0f1d1'] }, #26
+       { :type => '2r', :name => 'e18u24', :ports => ['enp32s0f0','enp32s0f1d1'] }, #27
+       { :type => '2l', :name => 'e18u18', :ports => ['enp32s0f0','enp32s0f1d1'] }, #28
+       { :type => '2r', :name => 'e18u25', :ports => ['enp32s0f0','enp32s0f1d1'] }, #29
+       { :type => '2l', :name => 'e18u17', :ports => ['enp32s0f0','enp32s0f1d1'] }, #30
+       { :type => '2r', :name => 'e18u26', :ports => ['enp32s0f0','enp32s0f1d1'] }, #31
+       { :type => '2l', :name => 'e18u16', :ports => ['enp32s0f0','enp32s0f1d1'] }, #32
+       { :type => '2r', :name => 'e18u27', :ports => ['enp32s0f0','enp32s0f1d1'] }, #33
+       { :type => '2l', :name => 'e18u15', :ports => ['enp32s0f0','enp32s0f1d1'] }, #34
+       { :type => '2r', :name => 'e18u28', :ports => ['enp32s0f0','enp32s0f1d1'] }, #35
+       { :type => '2l', :name => 'e18u14', :ports => ['enp32s0f0','enp32s0f1d1'] }, #36
+       { :type => '2r', :name => 'e18u29', :ports => ['enp32s0f0','enp32s0f1d1'] }, #37
+       { :type => '2l', :name => 'e18u13', :ports => ['enp32s0f0','enp32s0f1d1'] }, #38
+       { :type => '2r', :name => 'e18u30', :ports => ['enp32s0f0','enp32s0f1d1'] }, #39
+       { :type => '2l', :name => 'e18u12', :ports => ['enp32s0f0','enp32s0f1d1'] }, #40
+       { :type => '2r', :name => 'e18u31', :ports => ['enp32s0f0','enp32s0f1d1'] }, #41
+       { :type => '2l', :name => 'e18u11', :ports => ['enp32s0f0','enp32s0f1d1'] }, #42
+       { :type => '2r', :name => 'e18u32', :ports => ['enp32s0f0','enp32s0f1d1'] }, #43
+       { :type => '2l', :name => 'e18u10', :ports => ['enp32s0f0','enp32s0f1d1'] }, #44
+       { :type => '2r', :name => 'e18u33', :ports => ['enp32s0f0','enp32s0f1d1'] }, #45
+       { :type => '2l', :name => 'e18u09', :ports => ['enp32s0f0','enp32s0f1d1'] }, #46
+       { :type => '2r', :name => 'e18u34', :ports => ['enp32s0f0','enp32s0f1d1'] }, #47
+       { :type => '2l', :name => 'e18u08', :ports => ['enp32s0f0','enp32s0f1d1'] }, #48
         nil,                              #49
         nil,                              #50
         nil,                              #51
