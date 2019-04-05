@@ -55,8 +55,8 @@ module HOSTS
           'fo 1/50' => {  'label' => 'F2', 'remote' => {'host' => 'x7', 'port' => 'fo 1/50'}, 'Port-Channel' => 3 },
           'fo 1/51' => {  'label' => 'F3', 'remote' => {'host' => 'x4', 'port' => 'fo 1/51'}, 'Port-Channel' => 1 },
           'fo 1/52' => {  'label' => 'F4', 'remote' => {'host' => 'x4', 'port' => 'fo 1/52'}, 'Port-Channel' => 1 },
-          'fo 1/53' => {  'label' => 'F5', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/53:1'} },
-          'fo 1/54' => {  'label' => 'F6', 'remote' => {'host' => 'x10', 'port' => 'eth 1/1/54:1'} },
+          'fo 1/53' => {  'label' => 'F5', 'remote' => {'host' => 'x11', 'port' => 'eth 1/1/53:1'} },
+          'fo 1/54' => {  'label' => 'F6', 'remote' => {'host' => '', 'port' => ''} },
           'Ma 1/1'  => {  'label' => 'M', 'remote' => {'host' => 'x1', 'port' => 'Gi 1/44'}, 'ip'=>'172.31.80.6' },
         }
       }
